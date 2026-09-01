@@ -193,6 +193,22 @@ def snapshot(slugs: list[str]) -> dict:
     }
 
 
+def require_snapshot() -> dict:
+    """Load the catalogue snapshot, or explain how to build it.
+
+    The snapshot is regenerable and large, so it is not committed. Anything that needs
+    it should fail with that instruction rather than a bare FileNotFoundError.
+    """
+    path = CACHE / "snapshot.json"
+    if not path.exists():
+        raise SystemExit(
+            "No catalogue snapshot at cache/snapshot.json.\n"
+            "Build it first:  python -m bench.catalogue   "
+            "(needs COMPOSIO_API_KEY; the free tier is enough)"
+        )
+    return json.loads(path.read_text())
+
+
 def session_safe_toolkits(toolkits: list[dict]) -> list[str]:
     """Toolkits that can go in a session allowlist without a manual auth config.
 

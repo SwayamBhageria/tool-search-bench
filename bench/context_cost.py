@@ -39,9 +39,10 @@ def _tokens(obj) -> int:
 
 
 def main() -> dict:
+    from bench.catalogue import require_snapshot
     from composio import Composio
 
-    snap = json.loads((ROOT / "cache" / "snapshot.json").read_text())
+    snap = require_snapshot()
     tools = [t for v in snap["tools"].values() for t in v]
 
     preload_small = sum(

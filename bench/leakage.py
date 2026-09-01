@@ -15,6 +15,7 @@ import json
 import pathlib
 import statistics
 
+from bench.catalogue import require_snapshot
 from bench.retrievers import tokenize
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -36,7 +37,7 @@ def overlap(query: str, tool: dict) -> float:
 
 
 def main() -> None:
-    snap = json.loads((ROOT / "cache" / "snapshot.json").read_text())
+    snap = require_snapshot()
     fixture = json.loads((ROOT / "fixtures" / "cases-v1.json").read_text())
     by_slug = {t["slug"]: t for tools in snap["tools"].values() for t in tools}
 

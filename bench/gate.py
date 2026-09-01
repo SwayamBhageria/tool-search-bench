@@ -107,9 +107,10 @@ def compute_similarities() -> dict:
       wrong       tools returned for real queries that were wrong
       impossible  tools returned for queries the allowlist could not serve
     """
+    from bench.catalogue import require_snapshot
     from bench.embeddings import EmbeddingIndex
 
-    snap = json.loads((ROOT / "cache" / "snapshot.json").read_text())
+    snap = require_snapshot()
     tools = [t for v in snap["tools"].values() for t in v]
     gate = ConfidenceGate(EmbeddingIndex(tools), tools=tools)
 

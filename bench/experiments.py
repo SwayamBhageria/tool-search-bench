@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import pathlib
 
+from bench.catalogue import require_snapshot
 from bench.embeddings import EmbeddingIndex, EmbeddingRetriever
 from bench.gate import ConfidenceGate, GatedRetriever
 from bench.retrievers import BM25Retriever, ComposioRetriever
@@ -20,10 +21,7 @@ WORKERS = 6
 
 
 def main() -> None:
-    snapshot_path = ROOT / "cache" / "snapshot.json"
-    if not snapshot_path.exists():
-        raise SystemExit("no catalogue snapshot — run `python -m bench.catalogue` first")
-    snap = json.loads(snapshot_path.read_text())
+    snap = require_snapshot()
     tools = [t for v in snap["tools"].values() for t in v]
     slugs = sorted(snap["tools"].keys())
     cases = load_cases()
