@@ -12,13 +12,20 @@ import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
 
+# (result file, label, catalogue actually searched)
+SMALL = "2,347 tools · 23 toolkits"
+FULL = "~33,000 tools · 1,467 toolkits"
 MAIN = [
-    ("e0b_bm25_top1", "BM25 @1", "documented catalogue, 23 toolkits"),
-    ("e0b_bm25_top2", "BM25 @2", "documented catalogue, 23 toolkits"),
-    ("e0_bm25_23toolkits", "BM25 @5", "documented catalogue, 23 toolkits"),
-    ("e1_composio_23toolkits", "Composio", "session restricted to the same 23 toolkits"),
-    ("e2_composio_full", "Composio", "unrestricted — full catalogue"),
-    ("e4_composio_toolsearch", "Composio `tool_search`", "unrestricted, cached plans bypassed"),
+    ("e0b_bm25_top1", "BM25 @1", SMALL),
+    ("e0b_bm25_top2", "BM25 @2", SMALL),
+    ("e0_bm25_23toolkits", "BM25 @5", SMALL),
+    ("e6_embed_top1", "Embedding @1", SMALL),
+    ("e6_embed_top2", "Embedding @2", SMALL),
+    ("e6_embed_top5", "Embedding @5", SMALL),
+    ("e1_composio_23toolkits", "**Composio**", SMALL),
+    ("e2_composio_full", "**Composio**", FULL),
+    ("e4_composio_toolsearch", "Composio `tool_search`", FULL + ", cached plans bypassed"),
+    ("e8_composio_gated", "Composio + confidence gate", FULL),
 ]
 
 
@@ -29,8 +36,8 @@ def load(name: str) -> dict | None:
 
 def overall_table() -> str:
     rows = [
-        "| retriever | condition | strict | lenient | any | MRR | toolkit | tools returned |",
-        "|---|---|---:|---:|---:|---:|---:|---:|",
+        "| retriever | catalogue searched | candidates | strict | lenient | MRR | toolkit |",
+        "|---|---|---:|---:|---:|---:|---:|",
     ]
     for key, label, cond in MAIN:
         d = load(key)
@@ -41,9 +48,9 @@ def overall_table() -> str:
             continue
         o = d["overall"]
         rows.append(
-            f"| {label} | {cond} | {o['hit_primary_strict']:.3f} | "
-            f"{o['hit_primary_lenient']:.3f} | {o['hit_any_lenient']:.3f} | "
-            f"{o['mrr']:.3f} | {o['toolkit_correct']:.3f} | {o['mean_primary_returned']} |"
+            f"| {label} | {cond} | {o['mean_primary_returned']} | "
+            f"{o['hit_primary_strict']:.3f} | {o['hit_primary_lenient']:.3f} | "
+            f"{o['mrr']:.3f} | {o['toolkit_correct']:.3f} |"
         )
     return "\n".join(rows)
 
@@ -60,8 +67,7 @@ def kind_table() -> str:
         k = d["by_kind"]
         def cell(name: str) -> str:
             return f"{k[name]['hit_primary_lenient']:.3f}" if name in k else "—"
-        tag = f"{label} ({cond.split(',')[0].split('—')[0].strip()})"
-        rows.append(f"| {tag} | {cell('exact')} | {cell('paraphrase')} | {cell('unspecified')} |")
+        rows.append(f"| {label} | {cell('exact')} | {cell('paraphrase')} | {cell('unspecified')} |")
     return "\n".join(rows)
 
 
@@ -132,12 +138,87 @@ def miss_table(run_key: str = "e2_composio_full", kind: str = "exact") -> str:
     return "\n".join(rows)
 
 
+def gate_table() -> str:
+    d = load("e7_gate_sweep")
+    if not d:
+        return "_not run_"
+    rows = [
+        "| threshold | out-of-scope answers refused | correct answers lost |",
+        "|---:|---:|---:|",
+    ]
+    for r in d["rows"]:
+        if r["threshold"] < 0.49 or r["threshold"] > 0.73:
+            continue
+        mark = " ←" if r["threshold"] == 0.57 else ""
+        rows.append(
+            f"| {r['threshold']:.2f}{mark} | "
+            f"{r['out_of_scope_refused']}/{r['out_of_scope_total']} "
+            f"({r['out_of_scope_refused_rate']:.0%}) | "
+            f"{r['correct_answers_lost']}/{r['correct_answers_total']} "
+            f"({r['correct_answers_lost_rate']:.0%}) |"
+        )
+    return "\n".join(rows)
+
+
+def gate_live() -> str:
+    d = load("e9_gate_live")
+    g = load("e8_composio_gated")
+    b = load("e2_composio_full")
+    if not (d and g and b):
+        return "_not run_"
+    return (
+        f"- Out-of-scope answers refused, live, 3 repeats of 12 queries: "
+        f"**{d['repeats']} — mean {d['mean_refused']:.1f}/12 ({d['mean_rate']:.0%})**\n"
+        f"- Accuracy on the 91 real cases: "
+        f"**{b['overall']['hit_primary_lenient']:.3f} ungated → "
+        f"{g['overall']['hit_primary_lenient']:.3f} gated**\n"
+        f"- Correct answers suppressed by the gate: **none**"
+    )
+
+
+def gate_populations() -> str:
+    d = load("e7_gate_sweep")
+    if not d or "mean_score" not in d:
+        return "_not run_"
+    m, n = d["mean_score"], d["n"]
+    rows = ["| tools returned to… | n | mean gate score |", "|---|---:|---:|"]
+    for key, label in (("correct", "answerable queries, answered correctly"),
+                       ("wrong", "answerable queries, answered wrongly"),
+                       ("impossible", "queries the allowlist could not serve")):
+        if key in m:
+            rows.append(f"| {label} | {n[key]} | {m[key]:.3f} |")
+    return "\n".join(rows)
+
+
+def context_cost() -> str:
+    d = load("e10_context_cost")
+    if not d:
+        return "_not run_"
+    return (
+        f"| | tokens |\n|---|---:|\n"
+        f"| Preload {d['catalogue_tools_snapshotted']:,} tools "
+        f"({d['catalogue_toolkits_snapshotted']} toolkits), name + description only | "
+        f"{d['preload_tokens_snapshot']:,} |\n"
+        f"| Preload all {d['toolkit_count_total']:,} toolkits (extrapolated) | "
+        f"~{d['preload_tokens_full_catalogue_estimate']:,} |\n"
+        f"| One search call, full schemas returned (mean of "
+        f"{len(d['search_tokens_per_query'])} queries) | "
+        f"**{d['search_tokens_mean']:,}** |\n\n"
+        f"That is **{d['ratio_vs_snapshot']}× less than preloading the small catalogue "
+        f"and ~{d['ratio_vs_full_catalogue']:,}× less than the full one.**"
+    )
+
+
 MARKERS = {
     "OVERALL": overall_table,
     "BYKIND": kind_table,
     "SCOPE": scope_summary,
     "SCOPE_EXAMPLES": scope_examples,
     "MISSES": miss_table,
+    "GATE": gate_table,
+    "GATELIVE": gate_live,
+    "CONTEXTCOST": context_cost,
+    "GATEPOP": gate_populations,
 }
 
 

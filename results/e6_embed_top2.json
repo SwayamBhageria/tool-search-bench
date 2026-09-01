@@ -1,0 +1,1506 @@
+{
+ "retriever": "embed[bge-small-en-v1.5]@2",
+ "n_requested": 91,
+ "n_scored": 91,
+ "n_errors": 0,
+ "errors": [],
+ "wall_seconds": 0.8,
+ "latency_p50": 0.01,
+ "latency_p95": 0.02,
+ "overall": {
+  "n": 91,
+  "hit_primary_strict": 0.6703,
+  "hit_primary_lenient": 0.6923,
+  "hit_any_lenient": 0.6923,
+  "mrr": 0.6429,
+  "toolkit_correct": 0.9884,
+  "mean_primary_returned": 2.0
+ },
+ "by_kind": {
+  "exact": {
+   "n": 43,
+   "hit_primary_strict": 0.9767,
+   "hit_primary_lenient": 0.9767,
+   "hit_any_lenient": 0.9767,
+   "mrr": 0.9535,
+   "toolkit_correct": 1.0,
+   "mean_primary_returned": 2.0
+  },
+  "paraphrase": {
+   "n": 43,
+   "hit_primary_strict": 0.4419,
+   "hit_primary_lenient": 0.4651,
+   "hit_any_lenient": 0.4651,
+   "mrr": 0.3837,
+   "toolkit_correct": 0.9767,
+   "mean_primary_returned": 2.0
+  },
+  "unspecified": {
+   "n": 5,
+   "hit_primary_strict": 0.0,
+   "hit_primary_lenient": 0.2,
+   "hit_any_lenient": 0.2,
+   "mrr": 0.2,
+   "toolkit_correct": null,
+   "mean_primary_returned": 2.0
+  }
+ },
+ "cases": [
+  {
+   "case_id": "airtable_create_record--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "AIRTABLE_CREATE_RECORD",
+    "AIRTABLE_CREATE_MULTIPLE_RECORDS"
+   ]
+  },
+  {
+   "case_id": "airtable_create_record--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "AIRTABLE_CREATE_BASE",
+    "AIRTABLE_CREATE_FIELD"
+   ]
+  },
+  {
+   "case_id": "asana_create_a_project--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "ASANA_CREATE_A_PROJECT",
+    "ASANA_CREATE_SECTION_IN_PROJECT"
+   ]
+  },
+  {
+   "case_id": "asana_create_a_project--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "ASANA_CREATE_A_PROJECT",
+    "ASANA_CREATE_A_TASK"
+   ]
+  },
+  {
+   "case_id": "asana_create_a_task--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "ASANA_CREATE_A_TASK",
+    "ASANA_CREATE_SUBTASK"
+   ]
+  },
+  {
+   "case_id": "asana_create_a_task--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "ASANA_ADD_TASK_TO_SECTION",
+    "ASANA_CREATE_ATTACHMENT_FOR_TASK"
+   ]
+  },
+  {
+   "case_id": "calendly_cancel_event--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "CALENDLY_CANCEL_EVENT",
+    "CALENDLY_GET_EVENT"
+   ]
+  },
+  {
+   "case_id": "calendly_cancel_event--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "CALENDLY_CANCEL_EVENT",
+    "CALENDLY_CREATE_SINGLE_USE_SCHEDULING_LINK"
+   ]
+  },
+  {
+   "case_id": "dropbox_create_folder--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "DROPBOX_CREATE_FOLDER",
+    "DROPBOX_CREATE_PAPER"
+   ]
+  },
+  {
+   "case_id": "dropbox_create_folder--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "DROPBOX_CREATE_FOLDER",
+    "DROPBOX_MOVE_FILE_OR_FOLDER"
+   ]
+  },
+  {
+   "case_id": "dropbox_move_file_or_folder--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "DROPBOX_MOVE_FILE_OR_FOLDER",
+    "DROPBOX_UPLOAD_FILE"
+   ]
+  },
+  {
+   "case_id": "dropbox_move_file_or_folder--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "DROPBOX_MOVE_FILE_OR_FOLDER",
+    "DROPBOX_CREATE_FOLDER"
+   ]
+  },
+  {
+   "case_id": "figma_add_a_comment_to_a_file--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "FIGMA_ADD_A_COMMENT_TO_A_FILE",
+    "FIGMA_ADD_A_REACTION_TO_A_COMMENT"
+   ]
+  },
+  {
+   "case_id": "figma_add_a_comment_to_a_file--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "FIGMA_ADD_A_REACTION_TO_A_COMMENT",
+    "FIGMA_ADD_A_COMMENT_TO_A_FILE"
+   ]
+  },
+  {
+   "case_id": "github_activity_star_repo_for_authenticated_user--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_STAR_A_REPOSITORY_FOR_THE_AUTHENTICATED_USER",
+    "GITHUB_ACTIVITY_STAR_REPO_FOR_AUTHENTICATED_USER"
+   ]
+  },
+  {
+   "case_id": "github_activity_star_repo_for_authenticated_user--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_GET_A_PROJECT",
+    "GITHUB_MARK_A_THREAD_AS_DONE"
+   ]
+  },
+  {
+   "case_id": "github_create_a_pull_request--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_CREATE_A_PULL_REQUEST",
+    "GITHUB_PULLS_CREATE"
+   ]
+  },
+  {
+   "case_id": "github_create_a_pull_request--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_MERGE_A_BRANCH",
+    "GITHUB_MERGE_A_PULL_REQUEST"
+   ]
+  },
+  {
+   "case_id": "github_create_an_issue--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_CREATE_AN_ISSUE",
+    "GITHUB_CREATE_REACTION_FOR_AN_ISSUE"
+   ]
+  },
+  {
+   "case_id": "github_create_an_issue--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_GET_AN_ISSUE_COMMENT",
+    "GITHUB_GET_AN_ISSUE_EVENT"
+   ]
+  },
+  {
+   "case_id": "github_create_an_issue_comment--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_CREATE_AN_ISSUE_COMMENT",
+    "GITHUB_ISSUES_CREATE_COMMENT"
+   ]
+  },
+  {
+   "case_id": "github_create_an_issue_comment--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_CREATE_AN_ISSUE_COMMENT",
+    "GITHUB_GET_AN_ISSUE_COMMENT"
+   ]
+  },
+  {
+   "case_id": "gmail_add_label_to_email--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_ADD_LABEL_TO_EMAIL",
+    "GMAIL_CREATE_LABEL"
+   ]
+  },
+  {
+   "case_id": "gmail_add_label_to_email--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_ADD_LABEL_TO_EMAIL",
+    "GMAIL_REPLY_TO_THREAD"
+   ]
+  },
+  {
+   "case_id": "gmail_create_email_draft--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_CREATE_EMAIL_DRAFT",
+    "OUTLOOK_OUTLOOK_CREATE_DRAFT"
+   ]
+  },
+  {
+   "case_id": "gmail_create_email_draft--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_REPLY_TO_THREAD",
+    "GMAIL_MOVE_TO_TRASH"
+   ]
+  },
+  {
+   "case_id": "gmail_fetch_emails--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_FETCH_EMAILS",
+    "GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID"
+   ]
+  },
+  {
+   "case_id": "gmail_fetch_emails--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_REPLY_TO_THREAD",
+    "GMAIL_GET_ATTACHMENT"
+   ]
+  },
+  {
+   "case_id": "gmail_send_email--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_SEND_EMAIL",
+    "GMAIL_REPLY_TO_THREAD"
+   ]
+  },
+  {
+   "case_id": "gmail_send_email--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_REPLY_TO_THREAD",
+    "GMAIL_GET_PROFILE"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_create_event--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_CREATE_EVENT",
+    "GOOGLECALENDAR_QUICK_ADD"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_create_event--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_QUICK_ADD",
+    "GOOGLECALENDAR_DUPLICATE_CALENDAR"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_delete_event--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_DELETE_EVENT",
+    "GOOGLECALENDAR_REMOVE_ATTENDEE"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_delete_event--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_REMOVE_ATTENDEE",
+    "GOOGLECALENDAR_DELETE_EVENT"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_find_free_slots--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_FIND_FREE_SLOTS",
+    "GOOGLECALENDAR_FREE_BUSY_QUERY"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_find_free_slots--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_CALENDAR_LIST_UPDATE",
+    "GOOGLECALENDAR_GET_CALENDAR"
+   ]
+  },
+  {
+   "case_id": "googledocs_create_document--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDOCS_CREATE_DOCUMENT",
+    "GOOGLEDOCS_CREATE_DOCUMENT_MARKDOWN"
+   ]
+  },
+  {
+   "case_id": "googledocs_create_document--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDOCS_CREATE_FOOTNOTE",
+    "GOOGLEDOCS_CREATE_DOCUMENT_MARKDOWN"
+   ]
+  },
+  {
+   "case_id": "googledocs_replace_all_text--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDOCS_REPLACE_ALL_TEXT",
+    "GOOGLEDOCS_REPLACE_IMAGE"
+   ]
+  },
+  {
+   "case_id": "googledocs_replace_all_text--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDOCS_UPDATE_EXISTING_DOCUMENT",
+    "GOOGLEDOCS_REPLACE_ALL_TEXT"
+   ]
+  },
+  {
+   "case_id": "googledrive_copy_file--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDRIVE_COPY_FILE",
+    "GOOGLEDOCS_COPY_DOCUMENT"
+   ]
+  },
+  {
+   "case_id": "googledrive_copy_file--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": false,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDOCS_COPY_DOCUMENT",
+    "GOOGLEDRIVE_COPY_FILE"
+   ]
+  },
+  {
+   "case_id": "googledrive_create_folder--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDRIVE_CREATE_FOLDER",
+    "GOOGLEDRIVE_CREATE_SHORTCUT_TO_FILE"
+   ]
+  },
+  {
+   "case_id": "googledrive_create_folder--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDRIVE_UPDATE_PERMISSION",
+    "GOOGLEDRIVE_ADD_FILE_SHARING_PREFERENCE"
+   ]
+  },
+  {
+   "case_id": "googlesheets_create_spreadsheet_row--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLESHEETS_CREATE_SPREADSHEET_ROW",
+    "GOOGLESHEETS_CREATE_GOOGLE_SHEET1"
+   ]
+  },
+  {
+   "case_id": "googlesheets_create_spreadsheet_row--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLESHEETS_ADD_SHEET",
+    "GOOGLESHEETS_CREATE_GOOGLE_SHEET1"
+   ]
+  },
+  {
+   "case_id": "googlesheets_lookup_spreadsheet_row--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLESHEETS_LOOKUP_SPREADSHEET_ROW",
+    "GOOGLESHEETS_CREATE_SPREADSHEET_ROW"
+   ]
+  },
+  {
+   "case_id": "googlesheets_lookup_spreadsheet_row--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLESHEETS_LOOKUP_SPREADSHEET_ROW",
+    "GOOGLESHEETS_GET_SPREADSHEET_BY_DATA_FILTER"
+   ]
+  },
+  {
+   "case_id": "hubspot_create_contact--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "HUBSPOT_CREATE_CONTACT",
+    "HUBSPOT_HUBSPOT_CREATE_CONTACTS"
+   ]
+  },
+  {
+   "case_id": "hubspot_create_contact--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "HUBSPOT_CREATE_CONTACT",
+    "HUBSPOT_CREATE_COMPANY"
+   ]
+  },
+  {
+   "case_id": "jira_add_comment--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_ADD_COMMENT",
+    "JIRA_CREATE_ISSUE_LINK"
+   ]
+  },
+  {
+   "case_id": "jira_add_comment--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_SEND_NOTIFICATION_FOR_ISSUE",
+    "JIRA_UPDATE_COMMENT"
+   ]
+  },
+  {
+   "case_id": "jira_assign_issue--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_ASSIGN_ISSUE",
+    "JIRA_DELETE_ISSUE"
+   ]
+  },
+  {
+   "case_id": "jira_assign_issue--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_SEND_NOTIFICATION_FOR_ISSUE",
+    "HUBSPOT_ARCHIVE_TICKET"
+   ]
+  },
+  {
+   "case_id": "jira_create_issue--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_CREATE_ISSUE",
+    "JIRA_CREATE_ISSUE_LINK"
+   ]
+  },
+  {
+   "case_id": "jira_create_issue--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_GET_WORKLOG",
+    "JIRA_GET_ISSUE_WORKLOGS"
+   ]
+  },
+  {
+   "case_id": "linear_create_linear_issue--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "LINEAR_CREATE_LINEAR_ISSUE",
+    "LINEAR_CREATE_LINEAR_COMMENT"
+   ]
+  },
+  {
+   "case_id": "linear_create_linear_issue--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "LINEAR_CREATE_LINEAR_COMMENT",
+    "LINEAR_LIST_LINEAR_STATES"
+   ]
+  },
+  {
+   "case_id": "linear_list_linear_projects--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "LINEAR_LIST_LINEAR_PROJECTS",
+    "LINEAR_LIST_LINEAR_ISSUES"
+   ]
+  },
+  {
+   "case_id": "linear_list_linear_projects--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "LINEAR_LIST_LINEAR_CYCLES",
+    "LINEAR_LIST_LINEAR_STATES"
+   ]
+  },
+  {
+   "case_id": "notion_add_page_content--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "NOTION_ADD_PAGE_CONTENT",
+    "NOTION_ADD_MULTIPLE_PAGE_CONTENT"
+   ]
+  },
+  {
+   "case_id": "notion_add_page_content--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "NOTION_ADD_PAGE_CONTENT",
+    "NOTION_ADD_MULTIPLE_PAGE_CONTENT"
+   ]
+  },
+  {
+   "case_id": "notion_create_notion_page--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "NOTION_CREATE_NOTION_PAGE",
+    "NOTION_ADD_PAGE_CONTENT"
+   ]
+  },
+  {
+   "case_id": "notion_create_notion_page--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "NOTION_CREATE_NOTION_PAGE",
+    "NOTION_ADD_PAGE_CONTENT"
+   ]
+  },
+  {
+   "case_id": "notion_query_database--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "NOTION_QUERY_DATABASE",
+    "NOTION_SEARCH_NOTION_PAGE"
+   ]
+  },
+  {
+   "case_id": "notion_query_database--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "NOTION_FETCH_ROW",
+    "NOTION_QUERY_DATABASE"
+   ]
+  },
+  {
+   "case_id": "slack_archive_a_public_or_private_channel--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_ARCHIVE_A_SLACK_CONVERSATION",
+    "SLACK_ARCHIVE_A_PUBLIC_OR_PRIVATE_CHANNEL"
+   ]
+  },
+  {
+   "case_id": "slack_archive_a_public_or_private_channel--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_DELETE_A_PUBLIC_OR_PRIVATE_CHANNEL",
+    "SLACK_LEAVE_A_CONVERSATION"
+   ]
+  },
+  {
+   "case_id": "slack_create_channel--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_CREATE_CHANNEL",
+    "SLACK_CREATE_CHANNEL_BASED_CONVERSATION"
+   ]
+  },
+  {
+   "case_id": "slack_create_channel--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_CREATE_A_SLACK_USER_GROUP",
+    "SLACK_ARCHIVE_A_SLACK_CONVERSATION"
+   ]
+  },
+  {
+   "case_id": "slack_send_message--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_SENDS_A_MESSAGE_TO_A_SLACK_CHANNEL",
+    "SLACK_SEND_MESSAGE"
+   ]
+  },
+  {
+   "case_id": "slack_send_message--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_UPDATES_A_SLACK_MESSAGE",
+    "SLACK_ADD_A_CUSTOM_EMOJI_TO_A_SLACK_TEAM"
+   ]
+  },
+  {
+   "case_id": "stripe_create_customer--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_CREATE_CUSTOMER",
+    "STRIPE_CREATE_SUBSCRIPTION"
+   ]
+  },
+  {
+   "case_id": "stripe_create_customer--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_CREATE_CUSTOMER",
+    "STRIPE_CREATE_PRICE"
+   ]
+  },
+  {
+   "case_id": "stripe_create_refund--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_CREATE_REFUND",
+    "STRIPE_RETRIEVE_REFUND"
+   ]
+  },
+  {
+   "case_id": "stripe_create_refund--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_CONFIRM_PAYMENT_INTENT",
+    "STRIPE_RETRIEVE_REFUND"
+   ]
+  },
+  {
+   "case_id": "stripe_list_invoices--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_LIST_INVOICES",
+    "STRIPE_LIST_CHARGES"
+   ]
+  },
+  {
+   "case_id": "stripe_list_invoices--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_LIST_CHARGES",
+    "STRIPE_LIST_PAYMENT_INTENTS"
+   ]
+  },
+  {
+   "case_id": "todoist_close_task--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "TODOIST_CLOSE_TASK",
+    "TODOIST_DELETE_TASK"
+   ]
+  },
+  {
+   "case_id": "todoist_close_task--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "TODOIST_CLOSE_TASK",
+    "TODOIST_REOPEN_TASK"
+   ]
+  },
+  {
+   "case_id": "todoist_create_task--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "TODOIST_CREATE_TASK",
+    "TODOIST_CREATE_PROJECT"
+   ]
+  },
+  {
+   "case_id": "todoist_create_task--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "TODOIST_CREATE_TASK",
+    "TODOIST_CREATE_COMMENT"
+   ]
+  },
+  {
+   "case_id": "trello_add_cards--exact",
+   "kind": "exact",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "TRELLO_ADD_BOARDS_LISTS_BY_ID_BOARD",
+    "TRELLO_ADD_CARDS_STICKERS_BY_ID_CARD"
+   ]
+  },
+  {
+   "case_id": "trello_add_cards--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "TRELLO_ADD_LISTS",
+    "TRELLO_ADD_BOARDS_LISTS_BY_ID_BOARD"
+   ]
+  },
+  {
+   "case_id": "unspecified-01",
+   "kind": "unspecified",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": null,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "OUTLOOK_OUTLOOK_SEND_EMAIL",
+    "GMAIL_SEND_EMAIL"
+   ]
+  },
+  {
+   "case_id": "unspecified-02",
+   "kind": "unspecified",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": null,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "ZOOM_UPDATE_A_MEETING",
+    "SLACK_SCHEDULE_MESSAGE"
+   ]
+  },
+  {
+   "case_id": "unspecified-03",
+   "kind": "unspecified",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": null,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "ASANA_GET_TEAM",
+    "ASANA_UPDATE_TEAM"
+   ]
+  },
+  {
+   "case_id": "unspecified-04",
+   "kind": "unspecified",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": null,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_REVIEW_PENDING_DEPLOYMENTS_FOR_A_WORKFLOW_RUN",
+    "GITHUB_UPDATE_A_TEAM"
+   ]
+  },
+  {
+   "case_id": "unspecified-05",
+   "kind": "unspecified",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": null,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "TRELLO_ADD_CARDS_ACTIONS_COMMENTS_BY_ID_CARD",
+    "SLACK_SET_READ_CURSOR_IN_A_CONVERSATION"
+   ]
+  },
+  {
+   "case_id": "zoom_create_a_meeting--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "ZOOM_ADD_A_MEETING_REGISTRANT",
+    "ZOOM_CREATE_A_MEETING"
+   ]
+  },
+  {
+   "case_id": "zoom_create_a_meeting--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 2,
+   "n_related": 0,
+   "returned_primary": [
+    "ZOOM_GET_A_WEBINAR",
+    "ZOOM_CREATE_A_MEETING"
+   ]
+  }
+ ]
+}

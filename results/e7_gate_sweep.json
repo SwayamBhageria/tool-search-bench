@@ -1,0 +1,176 @@
+{
+ "rows": [
+  {
+   "threshold": 0.45,
+   "out_of_scope_refused": 0,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.0,
+   "correct_answers_lost": 0,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.0,
+   "wrong_answers_also_refused": 0
+  },
+  {
+   "threshold": 0.47,
+   "out_of_scope_refused": 0,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.0,
+   "correct_answers_lost": 0,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.0,
+   "wrong_answers_also_refused": 0
+  },
+  {
+   "threshold": 0.49,
+   "out_of_scope_refused": 0,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.0,
+   "correct_answers_lost": 0,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.0,
+   "wrong_answers_also_refused": 0
+  },
+  {
+   "threshold": 0.51,
+   "out_of_scope_refused": 1,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.0833,
+   "correct_answers_lost": 0,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.0,
+   "wrong_answers_also_refused": 0
+  },
+  {
+   "threshold": 0.53,
+   "out_of_scope_refused": 2,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.1667,
+   "correct_answers_lost": 0,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.0,
+   "wrong_answers_also_refused": 0
+  },
+  {
+   "threshold": 0.55,
+   "out_of_scope_refused": 3,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.25,
+   "correct_answers_lost": 0,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.0,
+   "wrong_answers_also_refused": 0
+  },
+  {
+   "threshold": 0.57,
+   "out_of_scope_refused": 5,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.4167,
+   "correct_answers_lost": 0,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.0,
+   "wrong_answers_also_refused": 1
+  },
+  {
+   "threshold": 0.59,
+   "out_of_scope_refused": 5,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.4167,
+   "correct_answers_lost": 1,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.0149,
+   "wrong_answers_also_refused": 3
+  },
+  {
+   "threshold": 0.61,
+   "out_of_scope_refused": 5,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.4167,
+   "correct_answers_lost": 3,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.0448,
+   "wrong_answers_also_refused": 3
+  },
+  {
+   "threshold": 0.63,
+   "out_of_scope_refused": 7,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.5833,
+   "correct_answers_lost": 6,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.0896,
+   "wrong_answers_also_refused": 5
+  },
+  {
+   "threshold": 0.65,
+   "out_of_scope_refused": 9,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.75,
+   "correct_answers_lost": 9,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.1343,
+   "wrong_answers_also_refused": 5
+  },
+  {
+   "threshold": 0.67,
+   "out_of_scope_refused": 10,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.8333,
+   "correct_answers_lost": 11,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.1642,
+   "wrong_answers_also_refused": 6
+  },
+  {
+   "threshold": 0.69,
+   "out_of_scope_refused": 11,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.9167,
+   "correct_answers_lost": 19,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.2836,
+   "wrong_answers_also_refused": 6
+  },
+  {
+   "threshold": 0.71,
+   "out_of_scope_refused": 11,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 0.9167,
+   "correct_answers_lost": 28,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.4179,
+   "wrong_answers_also_refused": 8
+  },
+  {
+   "threshold": 0.73,
+   "out_of_scope_refused": 12,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 1.0,
+   "correct_answers_lost": 29,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.4328,
+   "wrong_answers_also_refused": 11
+  },
+  {
+   "threshold": 0.75,
+   "out_of_scope_refused": 12,
+   "out_of_scope_total": 12,
+   "out_of_scope_refused_rate": 1.0,
+   "correct_answers_lost": 32,
+   "correct_answers_total": 67,
+   "correct_answers_lost_rate": 0.4776,
+   "wrong_answers_also_refused": 13
+  }
+ ],
+ "best_free_threshold": 0.57,
+ "best_free_recall": 0.4167,
+ "mean_score": {
+  "correct": 0.7664,
+  "wrong": 0.7491,
+  "impossible": 0.606
+ },
+ "n": {
+  "correct": 67,
+  "wrong": 24,
+  "impossible": 12
+ }
+}

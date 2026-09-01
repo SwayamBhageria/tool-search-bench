@@ -1,0 +1,11 @@
+{
+ "threshold": 0.57,
+ "repeats": [
+  6,
+  7,
+  6
+ ],
+ "n_queries": 12,
+ "mean_refused": 6.333333333333333,
+ "mean_rate": 0.5278
+}

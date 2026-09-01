@@ -1,0 +1,43 @@
+{
+ "note": "4 chars/token estimate; preload counts name+description only (no parameter schemas), search counts full returned schemas",
+ "catalogue_tools_snapshotted": 2347,
+ "catalogue_toolkits_snapshotted": 23,
+ "toolkit_count_total": 1468,
+ "preload_tokens_snapshot": 115542,
+ "preload_tokens_full_catalogue_estimate": 7374593,
+ "search_tokens_mean": 5092,
+ "search_tokens_per_query": [
+  {
+   "query": "send an email using Gmail",
+   "tokens": 3773,
+   "n_tools": 7
+  },
+  {
+   "query": "create an issue in a GitHub repository",
+   "tokens": 1343,
+   "n_tools": 7
+  },
+  {
+   "query": "create a refund in Stripe",
+   "tokens": 1005,
+   "n_tools": 7
+  },
+  {
+   "query": "find free slots in Google Calendar",
+   "tokens": 1921,
+   "n_tools": 6
+  },
+  {
+   "query": "create a new page in Notion",
+   "tokens": 20525,
+   "n_tools": 7
+  },
+  {
+   "query": "add a card to a Trello board",
+   "tokens": 1982,
+   "n_tools": 7
+  }
+ ],
+ "ratio_vs_snapshot": 23,
+ "ratio_vs_full_catalogue": 1448
+}

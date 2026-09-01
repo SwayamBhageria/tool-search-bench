@@ -9,6 +9,8 @@ from __future__ import annotations
 import json
 import pathlib
 
+from bench.embeddings import EmbeddingIndex, EmbeddingRetriever
+from bench.gate import ConfidenceGate, GatedRetriever
 from bench.retrievers import BM25Retriever, ComposioRetriever
 from bench.run import load_cases, run, save, summarise
 from bench import scope
@@ -35,6 +37,11 @@ def main() -> None:
         save(r, name)
         print(summarise(r))
 
+    for k, name in ((1, "e6_embed_top1"), (2, "e6_embed_top2"), (5, "e6_embed_top5")):
+        r = run(EmbeddingRetriever(tools, top_k=k), cases, workers=1)
+        save(r, name)
+        print(summarise(r))
+
     for retr, name in (
         (ComposioRetriever(toolkits=slugs), "e1_composio_23toolkits"),
         (ComposioRetriever(), "e2_composio_full"),
@@ -49,6 +56,19 @@ def main() -> None:
     r = run(ComposioRetriever(), subset, workers=WORKERS, repeat=3)
     save(r, "e5_variance")
     print("stability " + summarise(r))
+
+    # The confidence gate, and what gating costs on the real cases.
+    gate = ConfidenceGate(EmbeddingIndex(tools), tools=tools)
+    r = run(GatedRetriever(ComposioRetriever(), gate), cases, workers=WORKERS)
+    save(r, "e8_composio_gated")
+    print(summarise(r))
+
+    from bench import context_cost
+    cc = context_cost.main()
+    (ROOT / "results" / "e10_context_cost.json").write_text(json.dumps(cc, indent=1))
+    print(f"context: search {cc['search_tokens_mean']:,} tokens/query vs "
+          f"~{cc['preload_tokens_full_catalogue_estimate']:,} to preload "
+          f"({cc['ratio_vs_full_catalogue']}x)")
 
     res = scope.main(workers=4)
     (ROOT / "results" / "e3_scope.json").write_text(json.dumps(res, indent=1))
