@@ -1,0 +1,972 @@
+{
+ "version": 1,
+ "catalogue_fetched_at": "2026-09-01T19:02:11Z",
+ "toolkit_count": 1468,
+ "cases": [
+  {
+   "id": "gmail_send_email--exact",
+   "kind": "exact",
+   "toolkit": "gmail",
+   "query": "send an email using Gmail",
+   "expected": [
+    "GMAIL_SEND_EMAIL"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "gmail_send_email--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "gmail",
+   "query": "let a teammate know over Gmail that the quarterly report is finished",
+   "expected": [
+    "GMAIL_SEND_EMAIL"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "gmail_create_email_draft--exact",
+   "kind": "exact",
+   "toolkit": "gmail",
+   "query": "create an email draft in Gmail",
+   "expected": [
+    "GMAIL_CREATE_EMAIL_DRAFT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "gmail_create_email_draft--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "gmail",
+   "query": "write a Gmail message but leave it unsent for review later",
+   "expected": [
+    "GMAIL_CREATE_EMAIL_DRAFT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "gmail_fetch_emails--exact",
+   "kind": "exact",
+   "toolkit": "gmail",
+   "query": "fetch emails from Gmail",
+   "expected": [
+    "GMAIL_FETCH_EMAILS"
+   ],
+   "acceptable": [
+    "GMAIL_LIST_THREADS"
+   ]
+  },
+  {
+   "id": "gmail_fetch_emails--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "gmail",
+   "query": "go through what has arrived in my Gmail inbox this morning",
+   "expected": [
+    "GMAIL_FETCH_EMAILS"
+   ],
+   "acceptable": [
+    "GMAIL_LIST_THREADS"
+   ]
+  },
+  {
+   "id": "gmail_add_label_to_email--exact",
+   "kind": "exact",
+   "toolkit": "gmail",
+   "query": "add a label to an email in Gmail",
+   "expected": [
+    "GMAIL_ADD_LABEL_TO_EMAIL"
+   ],
+   "acceptable": [
+    "GMAIL_MODIFY_THREAD_LABELS"
+   ]
+  },
+  {
+   "id": "gmail_add_label_to_email--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "gmail",
+   "query": "tag a Gmail message so I can group it with the others later",
+   "expected": [
+    "GMAIL_ADD_LABEL_TO_EMAIL"
+   ],
+   "acceptable": [
+    "GMAIL_MODIFY_THREAD_LABELS"
+   ]
+  },
+  {
+   "id": "github_create_an_issue--exact",
+   "kind": "exact",
+   "toolkit": "github",
+   "query": "create an issue in a GitHub repository",
+   "expected": [
+    "GITHUB_CREATE_AN_ISSUE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "github_create_an_issue--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "github",
+   "query": "raise a bug report on our GitHub project so someone picks it up",
+   "expected": [
+    "GITHUB_CREATE_AN_ISSUE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "github_create_a_pull_request--exact",
+   "kind": "exact",
+   "toolkit": "github",
+   "query": "create a pull request on GitHub",
+   "expected": [
+    "GITHUB_CREATE_A_PULL_REQUEST"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "github_create_a_pull_request--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "github",
+   "query": "propose merging my branch into main on GitHub for review",
+   "expected": [
+    "GITHUB_CREATE_A_PULL_REQUEST"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "github_activity_star_repo_for_authenticated_user--exact",
+   "kind": "exact",
+   "toolkit": "github",
+   "query": "star a GitHub repository",
+   "expected": [
+    "GITHUB_ACTIVITY_STAR_REPO_FOR_AUTHENTICATED_USER"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "github_activity_star_repo_for_authenticated_user--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "github",
+   "query": "bookmark a GitHub project so it shows in my favourites",
+   "expected": [
+    "GITHUB_ACTIVITY_STAR_REPO_FOR_AUTHENTICATED_USER"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "github_create_an_issue_comment--exact",
+   "kind": "exact",
+   "toolkit": "github",
+   "query": "create a comment on a GitHub issue",
+   "expected": [
+    "GITHUB_CREATE_AN_ISSUE_COMMENT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "github_create_an_issue_comment--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "github",
+   "query": "reply in the discussion thread of an existing GitHub issue",
+   "expected": [
+    "GITHUB_CREATE_AN_ISSUE_COMMENT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "slack_send_message--exact",
+   "kind": "exact",
+   "toolkit": "slack",
+   "query": "send a message to a Slack channel",
+   "expected": [
+    "SLACK_SEND_MESSAGE"
+   ],
+   "acceptable": [
+    "SLACK_CHAT_POST_MESSAGE",
+    "SLACK_SENDS_A_MESSAGE_TO_A_SLACK_CHANNEL"
+   ]
+  },
+  {
+   "id": "slack_send_message--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "slack",
+   "query": "post an update for the team in Slack so everyone sees it",
+   "expected": [
+    "SLACK_SEND_MESSAGE"
+   ],
+   "acceptable": [
+    "SLACK_CHAT_POST_MESSAGE",
+    "SLACK_SENDS_A_MESSAGE_TO_A_SLACK_CHANNEL"
+   ]
+  },
+  {
+   "id": "slack_create_channel--exact",
+   "kind": "exact",
+   "toolkit": "slack",
+   "query": "create a new Slack channel",
+   "expected": [
+    "SLACK_CREATE_CHANNEL"
+   ],
+   "acceptable": [
+    "SLACK_CREATE_CHANNEL_BASED_CONVERSATION"
+   ]
+  },
+  {
+   "id": "slack_create_channel--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "slack",
+   "query": "open a fresh Slack space for the launch discussion",
+   "expected": [
+    "SLACK_CREATE_CHANNEL"
+   ],
+   "acceptable": [
+    "SLACK_CREATE_CHANNEL_BASED_CONVERSATION"
+   ]
+  },
+  {
+   "id": "slack_archive_a_public_or_private_channel--exact",
+   "kind": "exact",
+   "toolkit": "slack",
+   "query": "archive a Slack channel",
+   "expected": [
+    "SLACK_ARCHIVE_A_PUBLIC_OR_PRIVATE_CHANNEL"
+   ],
+   "acceptable": [
+    "SLACK_ARCHIVE_A_SLACK_CONVERSATION"
+   ]
+  },
+  {
+   "id": "slack_archive_a_public_or_private_channel--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "slack",
+   "query": "shut down a Slack channel we have finished with but keep its history",
+   "expected": [
+    "SLACK_ARCHIVE_A_PUBLIC_OR_PRIVATE_CHANNEL"
+   ],
+   "acceptable": [
+    "SLACK_ARCHIVE_A_SLACK_CONVERSATION"
+   ]
+  },
+  {
+   "id": "googlecalendar_create_event--exact",
+   "kind": "exact",
+   "toolkit": "googlecalendar",
+   "query": "create an event in Google Calendar",
+   "expected": [
+    "GOOGLECALENDAR_CREATE_EVENT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googlecalendar_create_event--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "googlecalendar",
+   "query": "put a design review on my Google Calendar for Thursday afternoon",
+   "expected": [
+    "GOOGLECALENDAR_CREATE_EVENT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googlecalendar_find_free_slots--exact",
+   "kind": "exact",
+   "toolkit": "googlecalendar",
+   "query": "find free slots in Google Calendar",
+   "expected": [
+    "GOOGLECALENDAR_FIND_FREE_SLOTS"
+   ],
+   "acceptable": [
+    "GOOGLECALENDAR_FREE_BUSY_QUERY"
+   ]
+  },
+  {
+   "id": "googlecalendar_find_free_slots--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "googlecalendar",
+   "query": "work out when I am actually available next week from my Google Calendar",
+   "expected": [
+    "GOOGLECALENDAR_FIND_FREE_SLOTS"
+   ],
+   "acceptable": [
+    "GOOGLECALENDAR_FREE_BUSY_QUERY"
+   ]
+  },
+  {
+   "id": "googlecalendar_delete_event--exact",
+   "kind": "exact",
+   "toolkit": "googlecalendar",
+   "query": "delete an event from Google Calendar",
+   "expected": [
+    "GOOGLECALENDAR_DELETE_EVENT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googlecalendar_delete_event--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "googlecalendar",
+   "query": "drop the standup off my Google Calendar, it is not happening",
+   "expected": [
+    "GOOGLECALENDAR_DELETE_EVENT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "notion_create_notion_page--exact",
+   "kind": "exact",
+   "toolkit": "notion",
+   "query": "create a new page in Notion",
+   "expected": [
+    "NOTION_CREATE_NOTION_PAGE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "notion_create_notion_page--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "notion",
+   "query": "start a fresh Notion write-up for the onboarding process",
+   "expected": [
+    "NOTION_CREATE_NOTION_PAGE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "notion_query_database--exact",
+   "kind": "exact",
+   "toolkit": "notion",
+   "query": "query a Notion database",
+   "expected": [
+    "NOTION_QUERY_DATABASE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "notion_query_database--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "notion",
+   "query": "pull the rows out of a Notion table that match a condition",
+   "expected": [
+    "NOTION_QUERY_DATABASE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "notion_add_page_content--exact",
+   "kind": "exact",
+   "toolkit": "notion",
+   "query": "add content to a Notion page",
+   "expected": [
+    "NOTION_ADD_PAGE_CONTENT"
+   ],
+   "acceptable": [
+    "NOTION_ADD_MULTIPLE_PAGE_CONTENT",
+    "NOTION_APPEND_BLOCK_CHILDREN"
+   ]
+  },
+  {
+   "id": "notion_add_page_content--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "notion",
+   "query": "append a paragraph to the bottom of an existing Notion write-up",
+   "expected": [
+    "NOTION_ADD_PAGE_CONTENT"
+   ],
+   "acceptable": [
+    "NOTION_ADD_MULTIPLE_PAGE_CONTENT",
+    "NOTION_APPEND_BLOCK_CHILDREN"
+   ]
+  },
+  {
+   "id": "linear_create_linear_issue--exact",
+   "kind": "exact",
+   "toolkit": "linear",
+   "query": "create an issue in Linear",
+   "expected": [
+    "LINEAR_CREATE_LINEAR_ISSUE"
+   ],
+   "acceptable": [
+    "LINEAR_CREATE_LINEAR_ISSUE_DETAILS"
+   ]
+  },
+  {
+   "id": "linear_create_linear_issue--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "linear",
+   "query": "log a piece of work in Linear so it lands on the board",
+   "expected": [
+    "LINEAR_CREATE_LINEAR_ISSUE"
+   ],
+   "acceptable": [
+    "LINEAR_CREATE_LINEAR_ISSUE_DETAILS"
+   ]
+  },
+  {
+   "id": "linear_list_linear_projects--exact",
+   "kind": "exact",
+   "toolkit": "linear",
+   "query": "list projects in Linear",
+   "expected": [
+    "LINEAR_LIST_LINEAR_PROJECTS"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "linear_list_linear_projects--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "linear",
+   "query": "show me what streams of work exist in Linear right now",
+   "expected": [
+    "LINEAR_LIST_LINEAR_PROJECTS"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "jira_create_issue--exact",
+   "kind": "exact",
+   "toolkit": "jira",
+   "query": "create an issue in Jira",
+   "expected": [
+    "JIRA_CREATE_ISSUE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "jira_create_issue--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "jira",
+   "query": "open a ticket in Jira for the caching work",
+   "expected": [
+    "JIRA_CREATE_ISSUE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "jira_add_comment--exact",
+   "kind": "exact",
+   "toolkit": "jira",
+   "query": "add a comment to a Jira issue",
+   "expected": [
+    "JIRA_ADD_COMMENT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "jira_add_comment--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "jira",
+   "query": "leave a note on a Jira ticket explaining what I found",
+   "expected": [
+    "JIRA_ADD_COMMENT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "jira_assign_issue--exact",
+   "kind": "exact",
+   "toolkit": "jira",
+   "query": "assign a Jira issue to a user",
+   "expected": [
+    "JIRA_ASSIGN_ISSUE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "jira_assign_issue--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "jira",
+   "query": "put a Jira ticket on a specific engineer's plate",
+   "expected": [
+    "JIRA_ASSIGN_ISSUE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googlesheets_create_spreadsheet_row--exact",
+   "kind": "exact",
+   "toolkit": "googlesheets",
+   "query": "create a new row in a Google Sheets spreadsheet",
+   "expected": [
+    "GOOGLESHEETS_CREATE_SPREADSHEET_ROW"
+   ],
+   "acceptable": [
+    "GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND"
+   ]
+  },
+  {
+   "id": "googlesheets_create_spreadsheet_row--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "googlesheets",
+   "query": "add one more line of data to the bottom of my Google Sheet",
+   "expected": [
+    "GOOGLESHEETS_CREATE_SPREADSHEET_ROW"
+   ],
+   "acceptable": [
+    "GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND"
+   ]
+  },
+  {
+   "id": "googlesheets_lookup_spreadsheet_row--exact",
+   "kind": "exact",
+   "toolkit": "googlesheets",
+   "query": "look up a row in a Google Sheets spreadsheet",
+   "expected": [
+    "GOOGLESHEETS_LOOKUP_SPREADSHEET_ROW"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googlesheets_lookup_spreadsheet_row--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "googlesheets",
+   "query": "find the line in my Google Sheet where the customer id matches",
+   "expected": [
+    "GOOGLESHEETS_LOOKUP_SPREADSHEET_ROW"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googledrive_create_folder--exact",
+   "kind": "exact",
+   "toolkit": "googledrive",
+   "query": "create a folder in Google Drive",
+   "expected": [
+    "GOOGLEDRIVE_CREATE_FOLDER"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googledrive_create_folder--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "googledrive",
+   "query": "make a new place in Google Drive to keep the contracts together",
+   "expected": [
+    "GOOGLEDRIVE_CREATE_FOLDER"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googledrive_copy_file--exact",
+   "kind": "exact",
+   "toolkit": "googledrive",
+   "query": "copy a file in Google Drive",
+   "expected": [
+    "GOOGLEDRIVE_COPY_FILE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googledrive_copy_file--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "googledrive",
+   "query": "duplicate a Google Drive document so I can edit it without touching the original",
+   "expected": [
+    "GOOGLEDRIVE_COPY_FILE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "asana_create_a_task--exact",
+   "kind": "exact",
+   "toolkit": "asana",
+   "query": "create a task in Asana",
+   "expected": [
+    "ASANA_CREATE_A_TASK"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "asana_create_a_task--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "asana",
+   "query": "add a piece of work to Asana so it is tracked",
+   "expected": [
+    "ASANA_CREATE_A_TASK"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "asana_create_a_project--exact",
+   "kind": "exact",
+   "toolkit": "asana",
+   "query": "create a project in Asana",
+   "expected": [
+    "ASANA_CREATE_A_PROJECT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "asana_create_a_project--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "asana",
+   "query": "set up a new workstream in Asana for the migration",
+   "expected": [
+    "ASANA_CREATE_A_PROJECT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "stripe_create_customer--exact",
+   "kind": "exact",
+   "toolkit": "stripe",
+   "query": "create a customer in Stripe",
+   "expected": [
+    "STRIPE_CREATE_CUSTOMER"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "stripe_create_customer--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "stripe",
+   "query": "register a new buyer in Stripe before charging them",
+   "expected": [
+    "STRIPE_CREATE_CUSTOMER"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "stripe_create_refund--exact",
+   "kind": "exact",
+   "toolkit": "stripe",
+   "query": "create a refund in Stripe",
+   "expected": [
+    "STRIPE_CREATE_REFUND"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "stripe_create_refund--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "stripe",
+   "query": "give a customer their money back through Stripe",
+   "expected": [
+    "STRIPE_CREATE_REFUND"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "stripe_list_invoices--exact",
+   "kind": "exact",
+   "toolkit": "stripe",
+   "query": "list invoices in Stripe",
+   "expected": [
+    "STRIPE_LIST_INVOICES"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "stripe_list_invoices--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "stripe",
+   "query": "show me the bills we have issued through Stripe",
+   "expected": [
+    "STRIPE_LIST_INVOICES"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "todoist_create_task--exact",
+   "kind": "exact",
+   "toolkit": "todoist",
+   "query": "create a task in Todoist",
+   "expected": [
+    "TODOIST_CREATE_TASK"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "todoist_create_task--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "todoist",
+   "query": "add something to my Todoist list for tomorrow",
+   "expected": [
+    "TODOIST_CREATE_TASK"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "todoist_close_task--exact",
+   "kind": "exact",
+   "toolkit": "todoist",
+   "query": "close a task in Todoist",
+   "expected": [
+    "TODOIST_CLOSE_TASK"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "todoist_close_task--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "todoist",
+   "query": "mark a Todoist item finished now that it is done",
+   "expected": [
+    "TODOIST_CLOSE_TASK"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "airtable_create_record--exact",
+   "kind": "exact",
+   "toolkit": "airtable",
+   "query": "create a record in Airtable",
+   "expected": [
+    "AIRTABLE_CREATE_RECORD"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "airtable_create_record--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "airtable",
+   "query": "add a new entry to my Airtable base",
+   "expected": [
+    "AIRTABLE_CREATE_RECORD"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "figma_add_a_comment_to_a_file--exact",
+   "kind": "exact",
+   "toolkit": "figma",
+   "query": "add a comment to a Figma file",
+   "expected": [
+    "FIGMA_ADD_A_COMMENT_TO_A_FILE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "figma_add_a_comment_to_a_file--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "figma",
+   "query": "leave design feedback directly on a Figma mockup",
+   "expected": [
+    "FIGMA_ADD_A_COMMENT_TO_A_FILE"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "zoom_create_a_meeting--exact",
+   "kind": "exact",
+   "toolkit": "zoom",
+   "query": "create a Zoom meeting",
+   "expected": [
+    "ZOOM_CREATE_A_MEETING"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "zoom_create_a_meeting--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "zoom",
+   "query": "set up a Zoom call and get a joining link",
+   "expected": [
+    "ZOOM_CREATE_A_MEETING"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "dropbox_create_folder--exact",
+   "kind": "exact",
+   "toolkit": "dropbox",
+   "query": "create a folder in Dropbox",
+   "expected": [
+    "DROPBOX_CREATE_FOLDER"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "dropbox_create_folder--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "dropbox",
+   "query": "make a new directory in Dropbox for the client assets",
+   "expected": [
+    "DROPBOX_CREATE_FOLDER"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "dropbox_move_file_or_folder--exact",
+   "kind": "exact",
+   "toolkit": "dropbox",
+   "query": "move a file in Dropbox",
+   "expected": [
+    "DROPBOX_MOVE_FILE_OR_FOLDER"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "dropbox_move_file_or_folder--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "dropbox",
+   "query": "relocate something in Dropbox to a different directory",
+   "expected": [
+    "DROPBOX_MOVE_FILE_OR_FOLDER"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googledocs_create_document--exact",
+   "kind": "exact",
+   "toolkit": "googledocs",
+   "query": "create a document in Google Docs",
+   "expected": [
+    "GOOGLEDOCS_CREATE_DOCUMENT"
+   ],
+   "acceptable": [
+    "GOOGLEDOCS_CREATE_DOCUMENT_MARKDOWN"
+   ]
+  },
+  {
+   "id": "googledocs_create_document--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "googledocs",
+   "query": "start a blank Google Doc for the meeting notes",
+   "expected": [
+    "GOOGLEDOCS_CREATE_DOCUMENT"
+   ],
+   "acceptable": [
+    "GOOGLEDOCS_CREATE_DOCUMENT_MARKDOWN"
+   ]
+  },
+  {
+   "id": "googledocs_replace_all_text--exact",
+   "kind": "exact",
+   "toolkit": "googledocs",
+   "query": "replace all occurrences of text in a Google Doc",
+   "expected": [
+    "GOOGLEDOCS_REPLACE_ALL_TEXT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "googledocs_replace_all_text--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "googledocs",
+   "query": "swap every mention of the old product name in a Google Doc for the new one",
+   "expected": [
+    "GOOGLEDOCS_REPLACE_ALL_TEXT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "hubspot_create_contact--exact",
+   "kind": "exact",
+   "toolkit": "hubspot",
+   "query": "create a contact in HubSpot",
+   "expected": [
+    "HUBSPOT_CREATE_CONTACT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "hubspot_create_contact--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "hubspot",
+   "query": "add a new person to our HubSpot CRM after a call",
+   "expected": [
+    "HUBSPOT_CREATE_CONTACT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "calendly_cancel_event--exact",
+   "kind": "exact",
+   "toolkit": "calendly",
+   "query": "cancel a scheduled event in Calendly",
+   "expected": [
+    "CALENDLY_CANCEL_EVENT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "calendly_cancel_event--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "calendly",
+   "query": "call off a Calendly booking that is no longer needed",
+   "expected": [
+    "CALENDLY_CANCEL_EVENT"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "trello_add_cards--exact",
+   "kind": "exact",
+   "toolkit": "trello",
+   "query": "add a card to a Trello board",
+   "expected": [
+    "TRELLO_ADD_CARDS"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "trello_add_cards--paraphrase",
+   "kind": "paraphrase",
+   "toolkit": "trello",
+   "query": "put a new item on our Trello board to track it",
+   "expected": [
+    "TRELLO_ADD_CARDS"
+   ],
+   "acceptable": []
+  },
+  {
+   "id": "unspecified-01",
+   "kind": "unspecified",
+   "toolkit": null,
+   "query": "send an email to a colleague",
+   "expected": [],
+   "acceptable": [
+    "GMAIL_SEND_EMAIL",
+    "OUTLOOK_OUTLOOK_SEND_EMAIL",
+    "SALESFORCE_SEND_EMAIL"
+   ]
+  },
+  {
+   "id": "unspecified-02",
+   "kind": "unspecified",
+   "toolkit": null,
+   "query": "schedule a meeting for next Tuesday",
+   "expected": [],
+   "acceptable": [
+    "GOOGLECALENDAR_CREATE_EVENT",
+    "OUTLOOK_OUTLOOK_CALENDAR_CREATE_EVENT",
+    "ZOOM_CREATE_A_MEETING",
+    "CALENDLY_CREATE_ONE_OFF_EVENT_TYPE"
+   ]
+  },
+  {
+   "id": "unspecified-03",
+   "kind": "unspecified",
+   "toolkit": null,
+   "query": "file a bug so the team can pick it up",
+   "expected": [],
+   "acceptable": [
+    "GITHUB_CREATE_AN_ISSUE",
+    "JIRA_CREATE_ISSUE",
+    "LINEAR_CREATE_LINEAR_ISSUE"
+   ]
+  },
+  {
+   "id": "unspecified-04",
+   "kind": "unspecified",
+   "toolkit": null,
+   "query": "let the team know the deploy is done",
+   "expected": [],
+   "acceptable": [
+    "SLACK_SEND_MESSAGE",
+    "SLACK_CHAT_POST_MESSAGE",
+    "SLACK_SENDS_A_MESSAGE_TO_A_SLACK_CHANNEL"
+   ]
+  },
+  {
+   "id": "unspecified-05",
+   "kind": "unspecified",
+   "toolkit": null,
+   "query": "save a note about this customer conversation",
+   "expected": [],
+   "acceptable": [
+    "NOTION_CREATE_NOTION_PAGE",
+    "HUBSPOT_CREATE_CONTACT",
+    "GOOGLEDOCS_CREATE_DOCUMENT"
+   ]
+  }
+ ]
+}

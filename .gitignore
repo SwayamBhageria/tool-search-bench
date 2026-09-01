@@ -1,0 +1,13 @@
+# secrets — never commit
+.env
+.env.*
+!.env.example
+*.key
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# large cached catalogue snapshots (regenerate with `python -m bench.catalogue`)
+cache/

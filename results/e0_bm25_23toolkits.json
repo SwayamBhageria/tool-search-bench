@@ -1,0 +1,1779 @@
+{
+ "retriever": "bm25",
+ "n_requested": 91,
+ "n_scored": 91,
+ "n_errors": 0,
+ "errors": [],
+ "wall_seconds": 0.1,
+ "latency_p50": 0.0,
+ "latency_p95": 0.0,
+ "overall": {
+  "n": 91,
+  "hit_primary_strict": 0.5165,
+  "hit_primary_lenient": 0.5714,
+  "hit_any_lenient": 0.5714,
+  "mrr": 0.5086,
+  "toolkit_correct": 0.7907,
+  "mean_primary_returned": 5.0
+ },
+ "by_kind": {
+  "exact": {
+   "n": 43,
+   "hit_primary_strict": 0.9767,
+   "hit_primary_lenient": 0.9767,
+   "hit_any_lenient": 0.9767,
+   "mrr": 0.9,
+   "toolkit_correct": 1.0,
+   "mean_primary_returned": 5.0
+  },
+  "paraphrase": {
+   "n": 43,
+   "hit_primary_strict": 0.1163,
+   "hit_primary_lenient": 0.186,
+   "hit_any_lenient": 0.186,
+   "mrr": 0.1298,
+   "toolkit_correct": 0.5814,
+   "mean_primary_returned": 5.0
+  },
+  "unspecified": {
+   "n": 5,
+   "hit_primary_strict": 0.0,
+   "hit_primary_lenient": 0.4,
+   "hit_any_lenient": 0.4,
+   "mrr": 0.4,
+   "toolkit_correct": null,
+   "mean_primary_returned": 5.0
+  }
+ },
+ "cases": [
+  {
+   "case_id": "airtable_create_record--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "AIRTABLE_CREATE_RECORD",
+    "AIRTABLE_UPDATE_RECORD",
+    "AIRTABLE_GET_RECORD",
+    "AIRTABLE_CREATE_COMMENT",
+    "AIRTABLE_DELETE_RECORD"
+   ]
+  },
+  {
+   "case_id": "airtable_create_record--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "AIRTABLE_CREATE_BASE",
+    "AIRTABLE_CREATE_FIELD",
+    "AIRTABLE_CREATE_COMMENT",
+    "AIRTABLE_GET_BASE_SCHEMA",
+    "AIRTABLE_CREATE_TABLE"
+   ]
+  },
+  {
+   "case_id": "asana_create_a_project--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "ASANA_CREATE_A_PROJECT",
+    "ASANA_CREATE_SECTION_IN_PROJECT",
+    "TODOIST_CREATE_PROJECT",
+    "ASANA_CREATE_PROJECT_STATUS_UPDATE",
+    "ASANA_GET_SECTIONS_IN_PROJECT"
+   ]
+  },
+  {
+   "case_id": "asana_create_a_project--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "ASANA_CREATE_A_TASK",
+    "ASANA_CREATE_TEAM",
+    "ASANA_CREATE_SUBTASK",
+    "ASANA_CREATE_CUSTOM_FIELD",
+    "GITHUB_SET_LABELS_FOR_AN_ISSUE"
+   ]
+  },
+  {
+   "case_id": "asana_create_a_task--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "ASANA_CREATE_TASK_COMMENT",
+    "ASANA_CREATE_A_TASK",
+    "ASANA_CREATE_ATTACHMENT_FOR_TASK",
+    "ASANA_CREATE_SUBTASK",
+    "ASANA_UPDATE_A_TASK"
+   ]
+  },
+  {
+   "case_id": "asana_create_a_task--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "ASANA_ADD_TASK_TO_SECTION",
+    "CLICKUP_EDIT_TIME_TRACKED",
+    "ASANA_ADD_FOLLOWERS_TO_TASK",
+    "CLICKUP_DELETE_TIME_TRACKED",
+    "CLICKUP_GET_TRACKED_TIME"
+   ]
+  },
+  {
+   "case_id": "calendly_cancel_event--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "CALENDLY_CANCEL_EVENT",
+    "CALENDLY_GET_EVENT",
+    "CALENDLY_GET_EVENT_INVITEE",
+    "CALENDLY_DELETE_SCHEDULED_EVENT_DATA",
+    "CALENDLY_CREATE_INVITEE_NO_SHOW"
+   ]
+  },
+  {
+   "case_id": "calendly_cancel_event--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "TRELLO_DELETE_MEMBER_SAVED_SEARCH",
+    "CALENDLY_CREATE_ONE_OFF_EVENT_TYPE",
+    "SLACK_DELETE_A_SLACK_REMINDER",
+    "CALENDLY_CREATE_SINGLE_USE_SCHEDULING_LINK",
+    "CALENDLY_GET_INVITEE_NO_SHOW"
+   ]
+  },
+  {
+   "case_id": "dropbox_create_folder--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "DROPBOX_CREATE_FOLDER",
+    "DROPBOX_CREATE_FILE_REQUEST",
+    "DROPBOX_LIST_FILES_IN_FOLDER",
+    "DROPBOX_DELETE_FILE_OR_FOLDER",
+    "DROPBOX_MOVE_FILE_OR_FOLDER"
+   ]
+  },
+  {
+   "case_id": "dropbox_create_folder--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "DROPBOX_CREATE_FOLDER",
+    "DROPBOX_LIST_FILES_IN_FOLDER",
+    "GITHUB_LIST_RELEASE_ASSETS",
+    "HUBSPOT_LIST_ASSETS",
+    "DROPBOX_CREATE_FILE_REQUEST"
+   ]
+  },
+  {
+   "case_id": "dropbox_move_file_or_folder--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "DROPBOX_MOVE_FILE_OR_FOLDER",
+    "DROPBOX_UPLOAD_FILE",
+    "GOOGLEDRIVE_MOVE_FILE",
+    "DROPBOX_READ_FILE",
+    "DROPBOX_CREATE_FILE_REQUEST"
+   ]
+  },
+  {
+   "case_id": "dropbox_move_file_or_folder--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "DROPBOX_LIST_FILES_IN_FOLDER",
+    "DROPBOX_CREATE_FOLDER",
+    "DROPBOX_UPLOAD_FILE",
+    "DROPBOX_CREATE_FILE_REQUEST",
+    "GITHUB_GET_A_REPOSITORY_README_FOR_A_DIRECTORY"
+   ]
+  },
+  {
+   "case_id": "figma_add_a_comment_to_a_file--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "FIGMA_ADD_A_REACTION_TO_A_COMMENT",
+    "FIGMA_ADD_A_COMMENT_TO_A_FILE",
+    "FIGMA_GET_REACTIONS_FOR_A_COMMENT",
+    "GOOGLEDRIVE_CREATE_COMMENT",
+    "FIGMA_DELETE_A_COMMENT"
+   ]
+  },
+  {
+   "case_id": "figma_add_a_comment_to_a_file--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "FIGMA_EXTRACT_DESIGN_TOKENS",
+    "SLACK_LEAVE_A_CONVERSATION",
+    "FIGMA_DELETE_DEV_RESOURCE",
+    "FIGMA_DISCOVER_FIGMA_RESOURCES",
+    "GITHUB_CREATE_A_CHECK_RUN"
+   ]
+  },
+  {
+   "case_id": "github_activity_star_repo_for_authenticated_user--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_ACTIVITY_STAR_REPO_FOR_AUTHENTICATED_USER",
+    "GITHUB_STAR_A_REPOSITORY_FOR_THE_AUTHENTICATED_USER",
+    "GITHUB_UNSTAR_A_REPOSITORY_FOR_THE_AUTHENTICATED_USER",
+    "TRELLO_TRELLO_UPDATE_MEMBER_BOARD_STAR",
+    "GITHUB_STAR_A_GIST"
+   ]
+  },
+  {
+   "case_id": "github_activity_star_repo_for_authenticated_user--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_CREATE_A_PROJECT_COLUMN",
+    "ASANA_GET_PROJECT_MEMBERSHIPS",
+    "GITHUB_LIST_PROJECT_COLUMNS",
+    "GITHUB_DELETE_A_PROJECT",
+    "GITHUB_ADD_OR_UPDATE_TEAM_PROJECT_PERMISSIONS"
+   ]
+  },
+  {
+   "case_id": "github_create_a_pull_request--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 5,
+   "reciprocal_rank": 0.2,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_PULLS_CREATE_REVIEW_COMMENT",
+    "GITHUB_LIST_REVIEW_COMMENTS_ON_A_PULL_REQUEST",
+    "GITHUB_PULLS_CREATE",
+    "GITHUB_LIST_COMMITS_ON_A_PULL_REQUEST",
+    "GITHUB_CREATE_A_PULL_REQUEST"
+   ]
+  },
+  {
+   "case_id": "github_create_a_pull_request--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_DELETE_PULL_REQUEST_REVIEW_PROTECTION",
+    "GITHUB_UPDATE_A_PULL_REQUEST_BRANCH",
+    "GITHUB_UPDATE_PULL_REQUEST_REVIEW_PROTECTION",
+    "GITHUB_REMOVE_STATUS_CHECK_PROTECTION",
+    "GITHUB_LIST_REVIEW_COMMENTS_ON_A_PULL_REQUEST"
+   ]
+  },
+  {
+   "case_id": "github_create_an_issue--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_ISSUES_CREATE",
+    "GITHUB_CREATE_AN_ISSUE",
+    "GITHUB_CREATE_REACTION_FOR_AN_ISSUE",
+    "GITHUB_CREATE_AN_ISSUE_COMMENT",
+    "GITHUB_CREATE_REACTION_FOR_AN_ISSUE_COMMENT"
+   ]
+  },
+  {
+   "case_id": "github_create_an_issue--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_CREATE_ISSUE",
+    "ZOOM_GET_DAILY_USAGE_REPORT",
+    "GITHUB_PRIVATELY_REPORT_A_SECURITY_VULNERABILITY",
+    "TRELLO_DELETE_BOARDS_POWER_UPS_BY_ID_BOARD_BY_POWER_UP",
+    "TRELLO_ADD_BOARDS_POWER_UPS_BY_ID_BOARD"
+   ]
+  },
+  {
+   "case_id": "github_create_an_issue_comment--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_ISSUES_CREATE_COMMENT",
+    "GITHUB_CREATE_AN_ISSUE_COMMENT",
+    "GITHUB_CREATE_REACTION_FOR_AN_ISSUE_COMMENT",
+    "LINEAR_CREATE_LINEAR_COMMENT",
+    "GITHUB_UPDATE_AN_ISSUE_COMMENT"
+   ]
+  },
+  {
+   "case_id": "github_create_an_issue_comment--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_REPLY_TO_THREAD",
+    "GITHUB_UPDATE_A_RELEASE",
+    "GITHUB_UPDATE_A_DISCUSSION_COMMENT",
+    "GOOGLEDRIVE_UPDATE_REPLY",
+    "NOTION_CREATE_COMMENT"
+   ]
+  },
+  {
+   "case_id": "gmail_add_label_to_email--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_ADD_LABEL_TO_EMAIL",
+    "GMAIL_CREATE_LABEL",
+    "GMAIL_PATCH_LABEL",
+    "GMAIL_REMOVE_LABEL",
+    "TRELLO_ADD_CARDS_ID_LABELS_BY_ID_CARD"
+   ]
+  },
+  {
+   "case_id": "gmail_add_label_to_email--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_GET_ATTACHMENT",
+    "SLACK_DISABLE_AN_EXISTING_SLACK_USER_GROUP",
+    "GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID",
+    "GMAIL_DELETE_MESSAGE",
+    "GMAIL_FETCH_MESSAGE_BY_THREAD_ID"
+   ]
+  },
+  {
+   "case_id": "gmail_create_email_draft--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_CREATE_EMAIL_DRAFT",
+    "GMAIL_SEND_DRAFT",
+    "OUTLOOK_OUTLOOK_CREATE_DRAFT",
+    "GMAIL_DELETE_DRAFT",
+    "GMAIL_LIST_DRAFTS"
+   ]
+  },
+  {
+   "case_id": "gmail_create_email_draft--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_DELETE_A_SCHEDULED_MESSAGE_IN_A_CHAT",
+    "GMAIL_GET_ATTACHMENT",
+    "GMAIL_DELETE_MESSAGE",
+    "GITHUB_DISMISS_A_REVIEW_FOR_A_PULL_REQUEST",
+    "GMAIL_GET_PROFILE"
+   ]
+  },
+  {
+   "case_id": "gmail_fetch_emails--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_FETCH_EMAILS",
+    "GMAIL_FETCH_MESSAGE_BY_THREAD_ID",
+    "GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID",
+    "GMAIL_SEARCH_PEOPLE",
+    "GMAIL_GET_ATTACHMENT"
+   ]
+  },
+  {
+   "case_id": "gmail_fetch_emails--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "ASANA_GET_MEMBERSHIPS",
+    "GMAIL_DELETE_DRAFT",
+    "GMAIL_DELETE_MESSAGE",
+    "GMAIL_GET_ATTACHMENT",
+    "GMAIL_CREATE_LABEL"
+   ]
+  },
+  {
+   "case_id": "gmail_send_email--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GMAIL_SEND_EMAIL",
+    "OUTLOOK_OUTLOOK_SEND_EMAIL",
+    "GMAIL_SEND_DRAFT",
+    "GMAIL_CREATE_EMAIL_DRAFT",
+    "JIRA_SEND_NOTIFICATION_FOR_ISSUE"
+   ]
+  },
+  {
+   "case_id": "gmail_send_email--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 4,
+   "reciprocal_rank": 0.25,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "ZOOM_GET_DAILY_USAGE_REPORT",
+    "GMAIL_MODIFY_THREAD_LABELS",
+    "GMAIL_LIST_LABELS",
+    "GMAIL_SEND_EMAIL",
+    "GMAIL_CREATE_EMAIL_DRAFT"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_create_event--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_REMOVE_ATTENDEE",
+    "GOOGLECALENDAR_CREATE_EVENT",
+    "OUTLOOK_OUTLOOK_CALENDAR_CREATE_EVENT",
+    "GOOGLECALENDAR_PATCH_EVENT",
+    "GOOGLECALENDAR_UPDATE_EVENT"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_create_event--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_UPDATE_EVENT",
+    "GOOGLECALENDAR_GET_CALENDAR",
+    "GITHUB_LIST_REVIEW_COMMENTS_ON_A_PULL_REQUEST",
+    "GOOGLECALENDAR_DUPLICATE_CALENDAR",
+    "GITHUB_LIST_COMMENTS_FOR_A_PULL_REQUEST_REVIEW"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_delete_event--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_DELETE_EVENT",
+    "GOOGLECALENDAR_REMOVE_ATTENDEE",
+    "OUTLOOK_OUTLOOK_DELETE_EVENT",
+    "OUTLOOK_OUTLOOK_UPDATE_CALENDAR_EVENT",
+    "GOOGLECALENDAR_PATCH_EVENT"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_delete_event--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_DELETE_EVENT",
+    "GOOGLECALENDAR_GET_CALENDAR",
+    "GOOGLECALENDAR_DUPLICATE_CALENDAR",
+    "GOOGLECALENDAR_PATCH_CALENDAR",
+    "CALENDLY_CREATE_ONE_OFF_EVENT_TYPE"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_find_free_slots--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_FIND_FREE_SLOTS",
+    "GOOGLECALENDAR_FIND_EVENT",
+    "GOOGLECALENDAR_GET_CALENDAR",
+    "GOOGLECALENDAR_FREE_BUSY_QUERY",
+    "GOOGLECALENDAR_DUPLICATE_CALENDAR"
+   ]
+  },
+  {
+   "case_id": "googlecalendar_find_free_slots--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLECALENDAR_EVENTS_MOVE",
+    "GOOGLECALENDAR_GET_CALENDAR",
+    "GOOGLECALENDAR_REMOVE_ATTENDEE",
+    "GOOGLECALENDAR_LIST_CALENDARS",
+    "GOOGLECALENDAR_DUPLICATE_CALENDAR"
+   ]
+  },
+  {
+   "case_id": "googledocs_create_document--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDOCS_CREATE_DOCUMENT_MARKDOWN",
+    "GOOGLEDOCS_CREATE_DOCUMENT",
+    "GOOGLEDOCS_UPDATE_DOCUMENT_MARKDOWN",
+    "GOOGLEDOCS_COPY_DOCUMENT",
+    "GOOGLEDOCS_CREATE_HEADER"
+   ]
+  },
+  {
+   "case_id": "googledocs_create_document--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "ZOOM_UPDATE_A_MEETING",
+    "ZOOM_CREATE_A_MEETING",
+    "GITHUB_GENERATE_RELEASE_NOTES_CONTENT_FOR_A_RELEASE",
+    "ZOOM_GET_A_MEETING",
+    "GOOGLEDOCS_UPDATE_EXISTING_DOCUMENT"
+   ]
+  },
+  {
+   "case_id": "googledocs_replace_all_text--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDOCS_REPLACE_ALL_TEXT",
+    "GOOGLEDOCS_REPLACE_IMAGE",
+    "GITHUB_REPLACE_ALL_REPOSITORY_TOPICS",
+    "GOOGLEDOCS_UPDATE_EXISTING_DOCUMENT",
+    "HUBSPOT_REPLACE_ALL_PROPERTIES_OF_PIPELINE"
+   ]
+  },
+  {
+   "case_id": "googledocs_replace_all_text--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDOCS_INSERT_TABLE_ACTION",
+    "STRIPE_CREATE_PRODUCT",
+    "STRIPE_CREATE_PRICE",
+    "SLACK_RENAME_A_CONVERSATION",
+    "HUBSPOT_CREATE_PRODUCT"
+   ]
+  },
+  {
+   "case_id": "googledrive_copy_file--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDRIVE_COPY_FILE",
+    "GOOGLEDOCS_COPY_DOCUMENT",
+    "GOOGLEDRIVE_DOWNLOAD_FILE",
+    "GOOGLEDRIVE_GOOGLE_DRIVE_DELETE_FOLDER_OR_FILE_ACTION",
+    "GOOGLEDRIVE_CREATE_FILE_FROM_TEXT"
+   ]
+  },
+  {
+   "case_id": "googledrive_copy_file--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDOCS_COPY_DOCUMENT",
+    "GOOGLEDRIVE_HIDE_DRIVE",
+    "GOOGLEDOCS_UPDATE_DOCUMENT_MARKDOWN",
+    "GOOGLEDRIVE_EDIT_FILE",
+    "GOOGLEDRIVE_CREATE_SHORTCUT_TO_FILE"
+   ]
+  },
+  {
+   "case_id": "googledrive_create_folder--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDRIVE_CREATE_FOLDER",
+    "GOOGLEDRIVE_CREATE_SHORTCUT_TO_FILE",
+    "GOOGLEDRIVE_GOOGLE_DRIVE_DELETE_FOLDER_OR_FILE_ACTION",
+    "GOOGLESHEETS_CREATE_GOOGLE_SHEET1",
+    "GOOGLEDRIVE_FIND_FOLDER"
+   ]
+  },
+  {
+   "case_id": "googledrive_create_folder--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLESHEETS_CREATE_GOOGLE_SHEET1",
+    "GOOGLEDRIVE_WATCH_CHANGES",
+    "GOOGLEDRIVE_CREATE_FILE_FROM_TEXT",
+    "GOOGLEDRIVE_CREATE_COMMENT",
+    "GOOGLEDRIVE_HIDE_DRIVE"
+   ]
+  },
+  {
+   "case_id": "googlesheets_create_spreadsheet_row--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLESHEETS_CREATE_SPREADSHEET_ROW",
+    "GOOGLESHEETS_CREATE_CHART",
+    "GOOGLESHEETS_LOOKUP_SPREADSHEET_ROW",
+    "GOOGLESHEETS_CREATE_GOOGLE_SHEET1",
+    "GOOGLESHEETS_CREATE_SPREADSHEET_COLUMN"
+   ]
+  },
+  {
+   "case_id": "googlesheets_create_spreadsheet_row--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLESHEETS_SPREADSHEETS_VALUES_BATCH_CLEAR_BY_DATA_FILTER",
+    "GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND",
+    "ASANA_ADD_FOLLOWERS_TO_TASK",
+    "GOOGLESHEETS_ADD_SHEET",
+    "CLICKUP_ADD_TAGS_FROM_TIME_ENTRIES"
+   ]
+  },
+  {
+   "case_id": "googlesheets_lookup_spreadsheet_row--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLESHEETS_LOOKUP_SPREADSHEET_ROW",
+    "GOOGLESHEETS_CREATE_SPREADSHEET_ROW",
+    "GOOGLESHEETS_CREATE_CHART",
+    "GOOGLEDOCS_LIST_SPREADSHEET_CHARTS_ACTION",
+    "GOOGLEDOCS_GET_CHARTS_FROM_SPREADSHEET"
+   ]
+  },
+  {
+   "case_id": "googlesheets_lookup_spreadsheet_row--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLESHEETS_LOOKUP_SPREADSHEET_ROW",
+    "SLACK_FIND_USERS",
+    "GOOGLESHEETS_CREATE_GOOGLE_SHEET1",
+    "HUBSPOT_CREATE_LINE_ITEM_OBJECT",
+    "GOOGLESHEETS_LIST_TABLES"
+   ]
+  },
+  {
+   "case_id": "hubspot_create_contact--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "HUBSPOT_CREATE_CONTACT",
+    "OUTLOOK_OUTLOOK_CREATE_CONTACT",
+    "OUTLOOK_CREATE_CONTACT_FOLDER",
+    "HUBSPOT_HUBSPOT_READ_CONTACT",
+    "HUBSPOT_HUBSPOT_ARCHIVE_CONTACT"
+   ]
+  },
+  {
+   "case_id": "hubspot_create_contact--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_ADD_CALL_PARTICIPANTS",
+    "SLACK_REGISTERS_NEW_CALL_PARTICIPANTS",
+    "SLACK_REGISTERS_A_NEW_CALL_WITH_PARTICIPANTS",
+    "HUBSPOT_ADD_TOKEN_TO_EVENT_TEMPLATE",
+    "SLACK_START_CALL"
+   ]
+  },
+  {
+   "case_id": "jira_add_comment--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_ADD_COMMENT",
+    "JIRA_ADD_ATTACHMENT",
+    "JIRA_DELETE_COMMENT",
+    "JIRA_ADD_WATCHER_TO_ISSUE",
+    "JIRA_GET_COMMENT"
+   ]
+  },
+  {
+   "case_id": "jira_add_comment--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_LEAVE_A_CONVERSATION",
+    "HUBSPOT_CREATE_TICKET",
+    "HUBSPOT_GET_TICKET",
+    "HUBSPOT_ARCHIVE_TICKET",
+    "HUBSPOT_UPDATE_TICKET"
+   ]
+  },
+  {
+   "case_id": "jira_assign_issue--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_ASSIGN_ISSUE",
+    "JIRA_GET_ISSUE_WORKLOGS",
+    "JIRA_TRANSITION_ISSUE",
+    "JIRA_ADD_WATCHER_TO_ISSUE",
+    "JIRA_DELETE_COMMENT"
+   ]
+  },
+  {
+   "case_id": "jira_assign_issue--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_DELETE_COMMENT",
+    "HUBSPOT_CREATE_TICKET",
+    "HUBSPOT_GET_TICKET",
+    "HUBSPOT_ARCHIVE_TICKET",
+    "HUBSPOT_UPDATE_TICKET"
+   ]
+  },
+  {
+   "case_id": "jira_create_issue--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_CREATE_ISSUE",
+    "JIRA_GET_VOTES",
+    "JIRA_DELETE_ISSUE",
+    "JIRA_CREATE_ISSUE_LINK",
+    "JIRA_GET_ISSUE_RESOLUTIONS"
+   ]
+  },
+  {
+   "case_id": "jira_create_issue--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "HUBSPOT_UPDATE_TICKET",
+    "CLICKUP_TEAMS_WORK_SPACES_GET_WORK_SPACE_PLAN",
+    "HUBSPOT_CREATE_TICKET",
+    "HUBSPOT_GET_TICKET",
+    "HUBSPOT_ARCHIVE_TICKET"
+   ]
+  },
+  {
+   "case_id": "linear_create_linear_issue--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "LINEAR_CREATE_LINEAR_ISSUE",
+    "LINEAR_CREATE_LINEAR_ISSUE_DETAILS",
+    "LINEAR_CREATE_LINEAR_COMMENT",
+    "LINEAR_GET_LINEAR_ISSUE",
+    "LINEAR_CREATE_LINEAR_ATTACHMENT"
+   ]
+  },
+  {
+   "case_id": "linear_create_linear_issue--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "LINEAR_LIST_LINEAR_CYCLES",
+    "LINEAR_CREATE_LINEAR_ATTACHMENT",
+    "LINEAR_CREATE_LINEAR_COMMENT",
+    "LINEAR_GET_CYCLES_BY_TEAM_ID",
+    "ASANA_GET_AUDIT_LOG_EVENTS"
+   ]
+  },
+  {
+   "case_id": "linear_list_linear_projects--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "LINEAR_LIST_LINEAR_PROJECTS",
+    "LINEAR_LIST_LINEAR_ISSUES",
+    "LINEAR_LIST_LINEAR_TEAMS",
+    "LINEAR_LIST_LINEAR_USERS",
+    "LINEAR_LIST_LINEAR_STATES"
+   ]
+  },
+  {
+   "case_id": "linear_list_linear_projects--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "LINEAR_LIST_LINEAR_CYCLES",
+    "LINEAR_GET_CURRENT_USER",
+    "SLACK_SHARE_A_ME_MESSAGE_IN_A_CHANNEL",
+    "LINEAR_GET_CYCLES_BY_TEAM_ID",
+    "LINEAR_LIST_LINEAR_STATES"
+   ]
+  },
+  {
+   "case_id": "notion_add_page_content--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "NOTION_ADD_PAGE_CONTENT",
+    "NOTION_DUPLICATE_PAGE",
+    "NOTION_ADD_MULTIPLE_PAGE_CONTENT",
+    "NOTION_ARCHIVE_NOTION_PAGE",
+    "NOTION_APPEND_BLOCK_CHILDREN"
+   ]
+  },
+  {
+   "case_id": "notion_add_page_content--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 3,
+   "reciprocal_rank": 0.3333333333333333,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND",
+    "GOOGLESHEETS_APPEND_DIMENSION",
+    "NOTION_APPEND_BLOCK_CHILDREN",
+    "GOOGLEDOCS_CREATE_PARAGRAPH_BULLETS",
+    "GOOGLEDOCS_DELETE_PARAGRAPH_BULLETS"
+   ]
+  },
+  {
+   "case_id": "notion_create_notion_page--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "NOTION_CREATE_NOTION_PAGE",
+    "NOTION_CREATE_DATABASE",
+    "NOTION_INSERT_ROW_DATABASE",
+    "NOTION_CREATE_COMMENT",
+    "NOTION_ARCHIVE_NOTION_PAGE"
+   ]
+  },
+  {
+   "case_id": "notion_create_notion_page--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_START_A_CODESPACE_FOR_THE_AUTHENTICATED_USER",
+    "CLICKUP_GET_TASK_COMMENTS",
+    "GOOGLEDOCS_INSERT_PAGE_BREAK",
+    "HUBSPOT_INITIATE_DATA_IMPORT_PROCESS",
+    "GOOGLECALENDAR_CREATE_EVENT"
+   ]
+  },
+  {
+   "case_id": "notion_query_database--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "NOTION_QUERY_DATABASE",
+    "NOTION_INSERT_ROW_DATABASE",
+    "NOTION_FETCH_DATABASE",
+    "NOTION_CREATE_DATABASE",
+    "NOTION_RETRIEVE_DATABASE_PROPERTY"
+   ]
+  },
+  {
+   "case_id": "notion_query_database--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 2,
+   "reciprocal_rank": 0.5,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GOOGLEDOCS_UPDATE_TABLE_ROW_STYLE",
+    "NOTION_QUERY_DATABASE",
+    "GOOGLESHEETS_GET_TABLE_SCHEMA",
+    "GOOGLESHEETS_DELETE_DIMENSION",
+    "GOOGLEDOCS_DELETE_TABLE"
+   ]
+  },
+  {
+   "case_id": "slack_archive_a_public_or_private_channel--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_ARCHIVE_A_PUBLIC_OR_PRIVATE_CHANNEL",
+    "SLACK_INVITE_USERS_TO_A_SLACK_CHANNEL",
+    "SLACK_RENAME_A_SLACK_CHANNEL",
+    "SLACK_SENDS_A_MESSAGE_TO_A_SLACK_CHANNEL",
+    "SLACK_LEAVE_A_CONVERSATION"
+   ]
+  },
+  {
+   "case_id": "slack_archive_a_public_or_private_channel--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_LISTS_PINNED_ITEMS_IN_A_CHANNEL",
+    "SLACK_RETRIEVE_DETAILED_USER_INFORMATION",
+    "SLACK_LEAVE_A_CONVERSATION",
+    "SLACK_UNARCHIVE_A_PUBLIC_OR_PRIVATE_CHANNEL",
+    "SLACK_INVITE_USERS_TO_A_SLACK_CHANNEL"
+   ]
+  },
+  {
+   "case_id": "slack_create_channel--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_CREATE_CHANNEL",
+    "SLACK_CREATE_CHANNEL_BASED_CONVERSATION",
+    "SLACK_INITIATES_CHANNEL_BASED_CONVERSATIONS",
+    "SLACK_INVITE_USERS_TO_A_SLACK_CHANNEL",
+    "SLACK_RENAME_A_SLACK_CHANNEL"
+   ]
+  },
+  {
+   "case_id": "slack_create_channel--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_OPEN_OR_RESUME_DIRECT_OR_MULTI_PERSON_MESSAGES",
+    "SLACK_OPEN_DM",
+    "GITHUB_CREATE_REACTION_FOR_A_TEAM_DISCUSSION_COMMENT",
+    "GITHUB_LIST_REACTIONS_FOR_A_TEAM_DISCUSSION",
+    "GITHUB_CREATE_REACTION_FOR_A_TEAM_DISCUSSION"
+   ]
+  },
+  {
+   "case_id": "slack_send_message--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_SENDS_A_MESSAGE_TO_A_SLACK_CHANNEL",
+    "SLACK_CHAT_POST_MESSAGE",
+    "SLACK_SEND_EPHEMERAL_MESSAGE",
+    "SLACK_SEND_MESSAGE",
+    "SLACK_SENDS_EPHEMERAL_MESSAGES_TO_CHANNEL_USERS"
+   ]
+  },
+  {
+   "case_id": "slack_send_message--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "SLACK_CHAT_POST_MESSAGE",
+    "GITHUB_ADD_TEAM_ACCESS_RESTRICTIONS",
+    "SLACK_SCHEDULE_MESSAGE",
+    "GITHUB_CREATE_A_DISCUSSION",
+    "GITHUB_ADD_OR_UPDATE_TEAM_PROJECT_PERMISSIONS"
+   ]
+  },
+  {
+   "case_id": "stripe_create_customer--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_CREATE_CUSTOMER",
+    "STRIPE_RETRIEVE_CUSTOMER",
+    "STRIPE_UPDATE_CUSTOMER",
+    "STRIPE_CREATE_INVOICE",
+    "STRIPE_DELETE_CUSTOMER"
+   ]
+  },
+  {
+   "case_id": "stripe_create_customer--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_LIST_COUPONS",
+    "SLACK_REGISTERS_A_NEW_CALL_WITH_PARTICIPANTS",
+    "SLACK_REGISTERS_NEW_CALL_PARTICIPANTS",
+    "STRIPE_LIST_PRODUCTS",
+    "STRIPE_CREATE_PRODUCT"
+   ]
+  },
+  {
+   "case_id": "stripe_create_refund--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_CREATE_REFUND",
+    "STRIPE_RETRIEVE_REFUND",
+    "STRIPE_CREATE_PRODUCT",
+    "STRIPE_CREATE_CUSTOMER",
+    "STRIPE_CREATE_PAYMENT_INTENT"
+   ]
+  },
+  {
+   "case_id": "stripe_create_refund--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_RETRIEVE_CUSTOMER",
+    "STRIPE_DELETE_CUSTOMER",
+    "STRIPE_UPDATE_CUSTOMER",
+    "STRIPE_CREATE_CUSTOMER",
+    "STRIPE_LIST_CUSTOMER_PAYMENT_METHODS"
+   ]
+  },
+  {
+   "case_id": "stripe_list_invoices--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_LIST_INVOICES",
+    "STRIPE_LIST_TAX_CODES",
+    "STRIPE_LIST_PAYMENT_LINKS",
+    "STRIPE_LIST_COUPONS",
+    "STRIPE_SEARCH_CUSTOMERS"
+   ]
+  },
+  {
+   "case_id": "stripe_list_invoices--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "CALENDLY_DELETE_INVITEE_NO_SHOW",
+    "CALENDLY_GET_INVITEE_NO_SHOW",
+    "TRELLO_UPDATE_BOARDS_MY_PREFS_SHOW_LIST_GUIDE_BY_ID_BOARD",
+    "CALENDLY_CREATE_INVITEE_NO_SHOW",
+    "SLACK_SHARE_A_ME_MESSAGE_IN_A_CHANNEL"
+   ]
+  },
+  {
+   "case_id": "todoist_close_task--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "TODOIST_CLOSE_TASK",
+    "TODOIST_DELETE_TASK",
+    "TODOIST_CREATE_TASK",
+    "TODOIST_REOPEN_TASK",
+    "TODOIST_CREATE_COMMENT"
+   ]
+  },
+  {
+   "case_id": "todoist_close_task--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_MARK_A_THREAD_AS_DONE",
+    "CLICKUP_CREATE_CHECKLIST_ITEM",
+    "HUBSPOT_ARCHIVE_LINE_ITEM_BY_ID",
+    "TRELLO_UPDATE_CHECKLIST_ITEM_BY_IDS",
+    "TRELLO_MARK_CARD_NOTIFICATIONS_READ"
+   ]
+  },
+  {
+   "case_id": "todoist_create_task--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "TODOIST_CREATE_TASK",
+    "TODOIST_CLOSE_TASK",
+    "TODOIST_CREATE_COMMENT",
+    "TODOIST_DELETE_TASK",
+    "TODOIST_CREATE_PROJECT"
+   ]
+  },
+  {
+   "case_id": "todoist_create_task--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "TODOIST_ADD_WORKSPACE",
+    "DISCORD_LIST_MY_GUILDS",
+    "TODOIST_CREATE_COMMENT",
+    "TODOIST_GET_ALL_SECTIONS",
+    "TODOIST_LIST_FILTERS"
+   ]
+  },
+  {
+   "case_id": "trello_add_cards--exact",
+   "kind": "exact",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "TRELLO_UPDATE_CARDS_ID_MEMBERS_BY_ID_CARD",
+    "TRELLO_UPDATE_CARDS_ID_BOARD_BY_ID_CARD",
+    "TRELLO_ADD_CARDS_ID_MEMBERS_BY_ID_CARD",
+    "TRELLO_ADD_CARDS_ID_LABELS_BY_ID_CARD",
+    "TRELLO_ADD_BOARDS_LABELS_BY_ID_BOARD"
+   ]
+  },
+  {
+   "case_id": "trello_add_cards--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "TRELLO_ADD_CARDS_CHECKLIST_CHECK_ITEM_BY_ID_CARD_BY_ID_CHECKLIST",
+    "TRELLO_ADD_LABELS",
+    "TRELLO_ADD_BOARDS_LABELS_BY_ID_BOARD",
+    "TRELLO_UPDATE_CHECKLIST_ITEM_BY_IDS",
+    "TRELLO_ADD_MEMBERS_BOARD_BACKGROUNDS_BY_ID_MEMBER"
+   ]
+  },
+  {
+   "case_id": "unspecified-01",
+   "kind": "unspecified",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": null,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "OUTLOOK_OUTLOOK_SEND_EMAIL",
+    "GMAIL_SEND_EMAIL",
+    "JIRA_SEND_NOTIFICATION_FOR_ISSUE",
+    "SLACK_SEND_EPHEMERAL_MESSAGE",
+    "SLACK_SENDS_EPHEMERAL_MESSAGES_TO_CHANNEL_USERS"
+   ]
+  },
+  {
+   "case_id": "unspecified-02",
+   "kind": "unspecified",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": null,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "OUTLOOK_OUTLOOK_GET_SCHEDULE",
+    "ZOOM_UPDATE_A_MEETING",
+    "CALENDLY_GET_USER_AVAILABILITY_SCHEDULE",
+    "ZOOM_GET_PAST_MEETING_PARTICIPANTS",
+    "ZOOM_GET_A_MEETING_SUMMARY"
+   ]
+  },
+  {
+   "case_id": "unspecified-03",
+   "kind": "unspecified",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": null,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "JIRA_CREATE_ISSUE",
+    "GOOGLEDRIVE_CREATE_FILE_FROM_TEXT",
+    "CLICKUP_GET_FILTERED_TEAM_TASKS",
+    "CLICKUP_GET_WEBHOOKS",
+    "HUBSPOT_ARCHIVE_COMPANY"
+   ]
+  },
+  {
+   "case_id": "unspecified-04",
+   "kind": "unspecified",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": null,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "GITHUB_MARK_A_THREAD_AS_DONE",
+    "GITHUB_LIST_DEPLOY_KEYS",
+    "GITHUB_CREATE_A_DEPLOY_KEY",
+    "GITHUB_GET_A_DEPLOY_KEY",
+    "GITHUB_DELETE_A_DEPLOY_KEY"
+   ]
+  },
+  {
+   "case_id": "unspecified-05",
+   "kind": "unspecified",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": null,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "STRIPE_DELETE_CUSTOMER",
+    "STRIPE_RETRIEVE_CUSTOMER",
+    "STRIPE_CREATE_CUSTOMER",
+    "SLACK_REMOVE_A_USER_FROM_A_CONVERSATION",
+    "STRIPE_UPDATE_CUSTOMER"
+   ]
+  },
+  {
+   "case_id": "zoom_create_a_meeting--exact",
+   "kind": "exact",
+   "hit_primary_strict": true,
+   "hit_primary_lenient": true,
+   "hit_any_lenient": true,
+   "rank": 1,
+   "reciprocal_rank": 1.0,
+   "toolkit_correct": true,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "ZOOM_CREATE_A_MEETING",
+    "ZOOM_GET_A_MEETING_SUMMARY",
+    "ZOOM_UPDATE_A_MEETING",
+    "ZOOM_ADD_A_MEETING_REGISTRANT",
+    "ZOOM_LIST_ARCHIVED_FILES"
+   ]
+  },
+  {
+   "case_id": "zoom_create_a_meeting--paraphrase",
+   "kind": "paraphrase",
+   "hit_primary_strict": false,
+   "hit_primary_lenient": false,
+   "hit_any_lenient": false,
+   "rank": null,
+   "reciprocal_rank": 0.0,
+   "toolkit_correct": false,
+   "n_primary": 5,
+   "n_related": 0,
+   "returned_primary": [
+    "CALENDLY_CREATE_SCHEDULING_LINK",
+    "CLICKUP_DELETE_TASK_LINK",
+    "ZOOM_ADD_A_WEBINAR_REGISTRANT",
+    "HUBSPOT_SET_CALL_RECORDING_SETTINGS",
+    "TRELLO_ADD_BOARDS_POWER_UPS_BY_ID_BOARD"
+   ]
+  }
+ ]
+}
