@@ -13,8 +13,27 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
 
 # (result file, label, catalogue actually searched)
-SMALL = "2,347 tools · 23 toolkits"
-FULL = "~33,000 tools · 1,467 toolkits"
+def _counts() -> tuple[str, str]:
+    """Catalogue sizes, read from the snapshot so they cannot go stale.
+
+    The catalogue moves — the toolkit count changed three times during the session that
+    built this — so these are derived, never typed.
+    """
+    snap = json.loads((ROOT / "cache" / "snapshot.json").read_text())
+    served = sum(len(v) for v in snap["tools"].values())
+    meta = sum(d["meta_tools_count"] for d in snap["metadata_drift"].values())
+    ratio = served / meta if meta else 1.0
+    full = int(snap["tool_count_metadata_upper_bound"] * ratio)
+    return (
+        f"{served:,} tools · {len(snap['tools'])} toolkits",
+        f"~{round(full, -3):,.0f} tools · {snap['toolkit_count']:,} toolkits",
+    )
+
+
+try:
+    SMALL, FULL = _counts()
+except Exception:  # snapshot absent — labels only, tables still render
+    SMALL, FULL = "23 toolkits", "full catalogue"
 MAIN = [
     ("e0b_bm25_top1", "BM25 @1", SMALL),
     ("e0b_bm25_top2", "BM25 @2", SMALL),
@@ -67,7 +86,9 @@ def kind_table() -> str:
         k = d["by_kind"]
         def cell(name: str) -> str:
             return f"{k[name]['hit_primary_lenient']:.3f}" if name in k else "—"
-        rows.append(f"| {label} | {cell('exact')} | {cell('paraphrase')} | {cell('unspecified')} |")
+        scope = "23 toolkits" if cond == SMALL else "full catalogue"
+        tag = label if "Composio" not in label else f"{label} · {scope}"
+        rows.append(f"| {tag} | {cell('exact')} | {cell('paraphrase')} | {cell('unspecified')} |")
     return "\n".join(rows)
 
 
@@ -209,6 +230,18 @@ def context_cost() -> str:
     )
 
 
+def catalogue_line() -> str:
+    snap = json.loads((ROOT / "cache" / "snapshot.json").read_text())
+    served = sum(len(v) for v in snap["tools"].values())
+    meta = sum(d["meta_tools_count"] for d in snap["metadata_drift"].values())
+    full = int(snap["tool_count_metadata_upper_bound"] * served / meta)
+    return (f"*Catalogue as measured: **{snap['toolkit_count']:,} toolkits**, "
+            f"~{round(full, -3):,.0f} served tools, snapshotted "
+            f"{snap['fetched_at'][:10]}. It moves — the toolkit count changed three times "
+            f"during the session that built this, so every count here is derived from the "
+            f"snapshot rather than typed.*")
+
+
 MARKERS = {
     "OVERALL": overall_table,
     "BYKIND": kind_table,
@@ -219,6 +252,7 @@ MARKERS = {
     "GATELIVE": gate_live,
     "CONTEXTCOST": context_cost,
     "GATEPOP": gate_populations,
+    "CATALOGUE": catalogue_line,
 }
 
 

@@ -9,8 +9,12 @@ if search returns the wrong tool, nothing downstream recovers.
 
 This is a harness for measuring that, plus a first run against
 [Composio](https://composio.dev), whose session API is built on exactly this design — an
-agent gets `COMPOSIO_SEARCH_TOOLS` and searches a catalogue of **1,467 toolkits** rather
-than receiving tool definitions up front.
+agent gets `COMPOSIO_SEARCH_TOOLS` and searches the whole catalogue at runtime rather than
+receiving tool definitions up front.
+
+<!--AUTO:CATALOGUE-->
+*Catalogue as measured: **1,468 toolkits**, ~33,000 served tools, snapshotted 2026-09-01. It moves — the toolkit count changed three times during the session that built this, so every count here is derived from the snapshot rather than typed.*
+<!--/AUTO:CATALOGUE-->
 
 It is a measurement rig, not a verdict — the results below run in both directions, and a
 local embedding index beats the hosted router on one of them. Where a finding implied a
@@ -37,9 +41,9 @@ and the column that makes the rest of the table comparable.
 | Embedding @2 | 2,347 tools · 23 toolkits | 2.0 | 0.670 | 0.692 | 0.643 | 0.988 |
 | Embedding @5 | 2,347 tools · 23 toolkits | 5.0 | 0.780 | 0.846 | 0.687 | 0.988 |
 | **Composio** | 2,347 tools · 23 toolkits | 1.65 | 0.681 | 0.780 | 0.665 | 0.988 |
-| **Composio** | ~33,000 tools · 1,467 toolkits | 1.57 | 0.659 | 0.736 | 0.649 | 0.988 |
-| Composio `tool_search` | ~33,000 tools · 1,467 toolkits, cached plans bypassed | 2.42 | 0.560 | 0.604 | 0.543 | 0.930 |
-| Composio + confidence gate | ~33,000 tools · 1,467 toolkits | 1.57 | 0.648 | 0.736 | 0.638 | 0.988 |
+| **Composio** | ~33,000 tools · 1,468 toolkits | 1.57 | 0.659 | 0.736 | 0.649 | 0.988 |
+| Composio `tool_search` | ~33,000 tools · 1,468 toolkits, cached plans bypassed | 2.42 | 0.560 | 0.604 | 0.543 | 0.930 |
+| Composio + confidence gate | ~33,000 tools · 1,468 toolkits | 1.57 | 0.648 | 0.736 | 0.638 | 0.988 |
 <!--/AUTO:OVERALL-->
 
 Two baselines: BM25 shows what the task is worth with no semantic knowledge at all, and a
@@ -65,8 +69,8 @@ ordering reverses:
 | Embedding @2 | 2.0 | 0.692 |
 | **Composio, same 23 toolkits** | **1.65** | **0.780** |
 
-Composio returns fewer tools and gets more of them right, over a catalogue two orders of
-magnitude larger, with no index to build or keep in sync. That is the claim the design
+Composio returns fewer tools and gets more of them right, over a catalogue 14× larger, with
+no index to build or keep in sync. That is the claim the design
 exists to support, and on this evidence it holds — but "beats a hosted router" is within
 reach of a 33M-parameter model on a laptop for anyone whose tool surface is small and
 static, and that is worth knowing in both directions.
@@ -82,10 +86,10 @@ static, and that is worth knowing in both directions.
 | Embedding @1 | 0.930 | 0.302 | 0.200 |
 | Embedding @2 | 0.977 | 0.465 | 0.200 |
 | Embedding @5 | 0.977 | 0.767 | 0.400 |
-| **Composio** | 0.814 | 0.744 | 0.800 |
-| **Composio** | 0.814 | 0.698 | 0.400 |
-| Composio `tool_search` | 0.791 | 0.465 | 0.200 |
-| Composio + confidence gate | 0.814 | 0.674 | 0.600 |
+| **Composio** · 23 toolkits | 0.814 | 0.744 | 0.800 |
+| **Composio** · full catalogue | 0.814 | 0.698 | 0.400 |
+| Composio `tool_search` · full catalogue | 0.791 | 0.465 | 0.200 |
+| Composio + confidence gate · full catalogue | 0.814 | 0.674 | 0.600 |
 <!--/AUTO:BYKIND-->
 
 `exact` names the app and the action plainly ("create an issue in a GitHub repository").
@@ -129,8 +133,8 @@ the true gap is wider. This is the part of the design that is not really in disp
 
 ### Three more things this found
 
-**Scale costs less than expected.** Widening from 23 toolkits to the full 1,467 — roughly
-64× the haystack — costs about 4 points of accuracy (0.780 → 0.736 lenient). The
+**Scale costs less than expected.** Widening from 23 toolkits to the whole catalogue — 64×
+the toolkits, about 14× the tools — costs roughly 4 points of accuracy (0.780 → 0.736 lenient). The
 retrieve-at-runtime design broadly holds at catalogue scale, which is the claim it exists
 to make.
 
@@ -301,7 +305,7 @@ stored run — reports 42% where live measurement gives 53%.
 
 ## What this does not show
 
-- **91 cases across 23 of 1,467 toolkits**, written by one person. Enough to separate
+- **91 cases across 23 toolkits**, written by one person. Enough to separate
   0.19 from 0.74; not enough for a leaderboard.
 - **The app-unspecified set is 5 cases.** Its numbers are reported for completeness and
   should not be read as a result.
@@ -334,8 +338,8 @@ tool lists in 14 of 15. Single-run figures are reported on that basis.
 
 ```bash
 python -m venv .venv && ./.venv/bin/pip install -r requirements.txt
-cp .env.example .env          # add a key — the free tier is 100k tool calls/month
-export COMPOSIO_API_KEY=...
+cp .env.example .env                    # add your key to it
+set -a && . ./.env && set +a            # the code reads the environment, not the file
 
 ./.venv/bin/python -m bench.catalogue        # snapshot the catalogue
 ./.venv/bin/python fixtures/build_cases.py   # build + validate the fixture
@@ -365,7 +369,10 @@ rather score it yourself.
 | `bench/leakage.py` | query/target vocabulary overlap, by case kind |
 | `bench/run.py` | bounded-concurrency runner; records lost cases rather than dropping them |
 | `bench/report.py` | renders every table in this README |
+| `bench/context_cost.py` | tokens per search call vs preloading the catalogue |
+| `bench/experiments.py` | runs every experiment, cheapest first |
 | `fixtures/build_cases.py` | the case set and its validator |
+| `tests/` | unit tests for the scorer and the gate |
 | `FINDINGS.md` | platform observations made while building, each with its check |
 
 ## Licence
