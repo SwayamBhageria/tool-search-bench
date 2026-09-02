@@ -28,6 +28,11 @@ executing one fails on *"No active connection found for toolkit 'slack'"* — th
 missing-credential path, not an unknown-tool path. They are real, routable tools that the
 public catalogue does not expose.
 
+**Measured, not anecdotal:** of 584 returned slugs from snapshotted toolkits, **100 (17%)
+are absent from the catalogue**; a 30-slug sample all returned 404 live while a 15-slug
+control of known-good slugs all returned 200. See the README section "The search surface is
+larger than the documented catalogue", reproducible with `python -m bench.surface`.
+
 Two consequences:
 1. **Methodological.** A baseline that indexes the documented catalogue cannot see part of
    what the router can return. Benchmark targets are therefore drawn only from the

@@ -68,6 +68,12 @@ def main() -> None:
           f"~{cc['preload_tokens_full_catalogue_estimate']:,} to preload "
           f"({cc['ratio_vs_full_catalogue']}x)")
 
+    from bench import surface
+    sg = surface.main()
+    (ROOT / "results" / "e11_surface.json").write_text(json.dumps(sg, indent=1))
+    print(f"surface gap: {sg['absent_from_catalogue']}/{sg['judgeable']} returned tools "
+          f"({sg['absent_rate']:.0%}) are absent from the public catalogue")
+
     res = scope.main(workers=4)
     (ROOT / "results" / "e3_scope.json").write_text(json.dumps(res, indent=1))
     print(f"\nscope: controls {res['controls_passed']}/{res['n_controls']} | "

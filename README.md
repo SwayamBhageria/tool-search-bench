@@ -303,17 +303,72 @@ stored run — reports 42% where live measurement gives 53%.
 
 ---
 
+## The search surface is larger than the documented catalogue
+
+Separate from accuracy, and the finding an operator should care about most.
+
+`COMPOSIO_SEARCH_TOOLS` returns tools that `GET /api/v3/tools` will not list and that
+`GET /api/v3/tools/{slug}` answers **404** for — `SLACK_ARCHIVE_CONVERSATION`,
+`TODOIST_CLOSE_TASK_V1`, `GITHUB_STAR_A_REPOSITORY_FOR_THE_AUTHENTICATED_USER` among them.
+
+**These are not hallucinations.** Each arrives with a complete schema in `tool_schemas`, and
+executing one fails on *"No active connection found for toolkit 'slack'"* — the
+missing-credential path, not an unknown-tool path. They are real, routable tools that the
+public catalogue does not expose.
+
+Measured across every slug this benchmark ever saw returned:
+
+<!--AUTO:SURFACE-->
+| | |
+|---|---:|
+| Distinct tools the router was seen to return | 614 |
+| Of those, in a toolkit this benchmark snapshotted | 584 |
+| **Absent from `GET /api/v3/tools`** | **100 (17%)** |
+| Sampled and checked live: returned 404 | 30/30 |
+| Control set of known-good slugs: returned 200 | 15/15 |
+
+Spread across toolkits rather than concentrated in one: `TODOIST` 13, `DROPBOX` 12, `NOTION` 10, `STRIPE` 10, `GMAIL` 7, `SLACK` 7, `ASANA` 6, `GITHUB` 4.
+<!--/AUTO:SURFACE-->
+
+Two guards, because the naive version of this measurement is wrong in both directions. Only
+slugs from toolkits this benchmark actually snapshotted are judged — a `MICROSOFT_TEAMS_*`
+slug is missing from the local snapshot merely because that toolkit was never fetched, and
+counting it would inflate the gap. And "absent from my snapshot" is a different claim from
+"absent from the API", so a sample is checked against the live endpoint alongside a control
+set of known-good slugs; if the control does not fully resolve, the run raises rather than
+reporting a result.
+
+**Why it matters beyond tidiness.** An operator cannot enumerate, through the public API,
+the full set of tools an agent in a session is able to invoke. Roughly one in six of the
+tools the router will hand an agent cannot be found in the catalogue that documents them.
+Anyone building an allowlist, an audit log, or a review process from the public API is
+working from an incomplete inventory — and will not know it, because nothing surfaces the
+difference.
+
+That is an auditability gap rather than a bug, and it is invisible from either side on its
+own: the catalogue looks complete, and the router looks correct.
+
+**What this does not establish is why.** Deprecated-but-routable, versioned variants, aliases
+and simple listing omissions would all look identical from outside — a slug that 404s cannot
+be asked about its own status. Several of the absent tools are near-duplicates of documented
+ones (`TODOIST_CLOSE_TASK_V1`, `AIRTABLE_CREATE_RECORDS`), which is suggestive but not
+evidence. The measurement here is the size of the gap, not its cause.
+
+Reproduce with `python -m bench.surface`.
+
+---
+
 ## What this does not show
 
 - **91 cases across 23 toolkits**, written by one person. Enough to separate
   0.19 from 0.74; not enough for a leaderboard.
 - **The app-unspecified set is 5 cases.** Its numbers are reported for completeness and
   should not be read as a result.
-- **The baseline is handicapped in one direction.** `COMPOSIO_SEARCH_TOOLS` can return
-  tools that `GET /api/v3/tools` does not list and that `/tools/{slug}` 404s — these are
-  real, routable tools with full schemas, not hallucinations (see `FINDINGS.md` F3). BM25
-  cannot index what the catalogue does not expose, so every benchmark target is drawn from
-  the documented catalogue, where both systems can reach the answer.
+- **The baseline is handicapped in one direction.** 17% of the tools the router returns are
+  not in the documented catalogue (see the surface-gap section above), and a local index
+  cannot rank what it cannot see. Every benchmark target is therefore drawn from the
+  documented catalogue, where both systems can reach the answer — but the router is being
+  scored on a task where it has strictly more to work with.
 - **The baselines search a smaller catalogue than Composio does.** Both index 2,347 tools
   across 23 toolkits; unrestricted Composio searches roughly 33,000. The like-for-like row
   (Composio restricted to the same 23 toolkits) is the one to compare against, and it is in
@@ -366,6 +421,7 @@ rather score it yourself.
 | `bench/gate.py` | the confidence gate, its wrapper, and the threshold sweep |
 | `bench/metrics.py` | scoring: strict/lenient hit rate, MRR, toolkit routing, containment |
 | `bench/scope.py` | allowlist containment and out-of-scope behaviour |
+| `bench/surface.py` | how much of what the router returns is missing from the catalogue |
 | `bench/leakage.py` | query/target vocabulary overlap, by case kind |
 | `bench/run.py` | bounded-concurrency runner; records lost cases rather than dropping them |
 | `bench/report.py` | renders every table in this README |

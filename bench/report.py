@@ -242,6 +242,31 @@ def catalogue_line() -> str:
             f"snapshot rather than typed.*")
 
 
+def surface_gap() -> str:
+    d = load("e11_surface")
+    if not d:
+        return "_not run_"
+    rows = [
+        "| | |",
+        "|---|---:|",
+        f"| Distinct tools the router was seen to return | {d['distinct_slugs_returned']} |",
+        f"| Of those, in a toolkit this benchmark snapshotted | {d['judgeable']} |",
+        f"| **Absent from `GET /api/v3/tools`** | "
+        f"**{d['absent_from_catalogue']} ({d['absent_rate']:.0%})** |",
+        f"| Sampled and checked live: returned 404 | "
+        f"{d['verified_404']}/{d['verified_sample_size']} |",
+        f"| Control set of known-good slugs: returned 200 | "
+        f"{d['control_200']}/{d['control_size']} |",
+    ]
+    top = list(d["by_toolkit"].items())[:8]
+    rows.append("")
+    # Toolkit tokens are shown as they appear in slugs; title-casing turns GITHUB into
+    # "Github", which reads as a typo next to the slugs themselves.
+    rows.append("Spread across toolkits rather than concentrated in one: "
+                + ", ".join(f"`{k}` {v}" for k, v in top) + ".")
+    return "\n".join(rows)
+
+
 MARKERS = {
     "OVERALL": overall_table,
     "BYKIND": kind_table,
@@ -253,6 +278,7 @@ MARKERS = {
     "CONTEXTCOST": context_cost,
     "GATEPOP": gate_populations,
     "CATALOGUE": catalogue_line,
+    "SURFACE": surface_gap,
 }
 
 
