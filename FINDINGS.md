@@ -71,3 +71,19 @@ select a tool that behaves differently from the one intended. It also depresses 
 exact-slug benchmark score without any retrieval error having occurred — 6 of the 8
 `exact` misses measured here are of this kind.
 *Check:* manual review of every `exact` miss; the full list is in the README.
+
+## F7 — No published accuracy number for Composio's tool search
+Searched their full docs corpus (`llms-full.txt`, 1.07 MB — zero occurrences of
+"benchmark", zero percentage figures), all 16 blog posts, the homepage, and the repo. The
+only Tool Router post is the beta announcement; the one post with "Accuracy" in the title
+benchmarks **GPT-4's** function calling, not their router.
+
+The repo does contain ranked-retrieval eval machinery — `docs/evals/kb-search-v1.json` and
+`docs/scripts/eval-kb-search.ts`, scoring `exact` vs `paraphrase` cases against expected
+results — but it is pointed at their **documentation search**, not at
+`COMPOSIO_SEARCH_TOOLS`.
+
+Meanwhile a competitor publishes head-to-head figures over 2,792 tools (see the README's
+prior-work section). **The claim to make is "I could not find a published number", never
+"they have never measured this"** — internal benchmarks, investor material and conference
+talks are not visible from outside.

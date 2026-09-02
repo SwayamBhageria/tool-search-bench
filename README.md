@@ -111,6 +111,34 @@ first number is measuring string overlap, not tool search.
 
 Run `python -m bench.leakage` to reproduce the overlap figures.
 
+#### Prior work, and why this benchmark is shaped differently
+
+The closest published comparison is Stacklok's, benchmarking their MCP Optimizer against
+[Anthropic's Tool Search Tool](https://dev.to/stacklok/stackloks-mcp-optimizer-vs-anthropics-tool-search-tool-a-head-to-head-comparison-2f32)
+over **2,792 tools** from the MCP-tools dataset (Alejandro Ponce de León, Stacklok). Their
+reported numbers:
+
+| | selection | retrieval |
+|---|---:|---:|
+| MCP Optimizer (theirs) | 93.95% | 98.03% |
+| Anthropic Tool Search, BM25 | 33.70% | 47.85% |
+| Anthropic Tool Search, regex | 30.01% | 39.00% |
+
+Two things to say about it. It is a vendor publishing a comparison in which their own
+product wins, which is worth holding in mind — though the methodology is described openly,
+which is more than most. And the query set was built by, in their words, generating "a
+synthetic query using an LLM that would naturally require that specific tool", for each
+tool.
+
+**That is precisely the construction measured above.** Queries derived from a tool's own
+definition carry its vocabulary, and on this benchmark that regime is where BM25 reaches
+0.977 — a keyword matcher reading the tool's name back out of the question. Which is why
+the case set here is hand-written and split by phrasing, and why the overlap between query
+and target is reported as a number rather than assumed away.
+
+Composio appears in none of these comparisons, which is part of why this exists.
+
+
 ### What the retrieve-at-runtime design actually buys
 
 The argument for searching instead of preloading is context cost, so it is worth a number.
