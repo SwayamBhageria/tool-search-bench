@@ -110,10 +110,12 @@ def scope_summary() -> str:
     return "\n".join(lines)
 
 
-def scope_examples(n: int = 6) -> str:
+def scope_examples(n: int = 12) -> str:
     d = load("e3_scope")
     if not d:
         return ""
+    # All 12, not a sample: the claim is that *every* impossible query was answered
+    # anyway, so showing a subset invites the question of what the subset hides.
     rows = ["| query (impossible within the allowlist) | tool returned |", "|---|---|"]
     for a in d["answered_anyway"][:n]:
         rows.append(f"| {a['query']} | `{a['returned'][0]}` |")

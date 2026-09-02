@@ -248,6 +248,12 @@ was available:
 | find free slots in my Google Calendar next week | `SLACK_RETRIEVE_CURRENT_USER_DND_STATUS` |
 | create an event in Google Calendar | `NOTION_CREATE_VIEW` |
 | create a customer in Stripe | `TODOIST_CREATE_PROJECT2` |
+| create a refund in Stripe | `TODOIST_CREATE_PROJECT2` |
+| send an email using Gmail | `DROPBOX_SEND_TEAM_MEMBER_WELCOME_EMAIL` |
+| list invoices in Stripe | `TODOIST_LIST_SECTIONS` |
+| create a pull request on GitHub | `GMAIL_CREATE_PROMPT_POST` |
+| create an issue in a GitHub repository | `STRIPE_CREATE_SOURCE` |
+| star a GitHub repository | `ZOOM_GET_PROJECT` |
 <!--/AUTO:SCOPE_EXAMPLES-->
 
 A containment check alone would score this as a clean pass — the tools returned *are*
