@@ -13,7 +13,7 @@ agent gets `COMPOSIO_SEARCH_TOOLS` and searches the whole catalogue at runtime r
 receiving tool definitions up front.
 
 <!--AUTO:CATALOGUE-->
-*Catalogue as measured: **1,468 toolkits**, ~33,000 served tools, snapshotted 2026-09-01. It moves — the toolkit count changed three times during the session that built this, so every count here is derived from the snapshot rather than typed.*
+*Catalogue as measured: **1,468 toolkits**, ~33,000 served tools, snapshotted 2026-09-01. It moves — the toolkit count changed three times during the session that built this, so every count here is derived from the fixture rather than typed.*
 <!--/AUTO:CATALOGUE-->
 
 It is a measurement rig, not a verdict — the results below run in both directions, and a

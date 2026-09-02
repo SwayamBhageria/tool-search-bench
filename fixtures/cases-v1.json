@@ -1,7 +1,13 @@
 {
  "version": 1,
- "catalogue_fetched_at": "2026-09-01T19:02:11Z",
- "toolkit_count": 1468,
+ "catalogue": {
+  "fetched_at": "2026-09-01T19:02:11Z",
+  "toolkit_count": 1468,
+  "toolkits_snapshotted": 23,
+  "tools_snapshotted": 2347,
+  "tools_metadata_upper_bound": 50624,
+  "served_to_metadata_ratio": 0.6561
+ },
  "cases": [
   {
    "id": "gmail_send_email--exact",

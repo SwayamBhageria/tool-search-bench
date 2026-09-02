@@ -13,26 +13,28 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
 
 # (result file, label, catalogue actually searched)
-def _counts() -> tuple[str, str]:
-    """Catalogue sizes, read from the snapshot so they cannot go stale.
+def _catalogue() -> dict:
+    """Catalogue summary, from the committed fixture.
 
-    The catalogue moves — the toolkit count changed three times during the session that
-    built this — so these are derived, never typed.
+    Read from `fixtures/cases-v1.json` rather than the snapshot so the whole report
+    regenerates from a fresh clone — the snapshot is large and regenerable, so it is not
+    committed, and reading it here silently made `report --write` a snapshot-only command.
     """
-    snap = json.loads((ROOT / "cache" / "snapshot.json").read_text())
-    served = sum(len(v) for v in snap["tools"].values())
-    meta = sum(d["meta_tools_count"] for d in snap["metadata_drift"].values())
-    ratio = served / meta if meta else 1.0
-    full = int(snap["tool_count_metadata_upper_bound"] * ratio)
+    return json.loads((ROOT / "fixtures" / "cases-v1.json").read_text())["catalogue"]
+
+
+def _counts() -> tuple[str, str]:
+    c = _catalogue()
+    full = int(c["tools_metadata_upper_bound"] * c["served_to_metadata_ratio"])
     return (
-        f"{served:,} tools · {len(snap['tools'])} toolkits",
-        f"~{round(full, -3):,.0f} tools · {snap['toolkit_count']:,} toolkits",
+        f"{c['tools_snapshotted']:,} tools · {c['toolkits_snapshotted']} toolkits",
+        f"~{round(full, -3):,.0f} tools · {c['toolkit_count']:,} toolkits",
     )
 
 
 try:
     SMALL, FULL = _counts()
-except Exception:  # snapshot absent — labels only, tables still render
+except Exception:  # fixture absent — labels only, tables still render
     SMALL, FULL = "23 toolkits", "full catalogue"
 MAIN = [
     ("e0b_bm25_top1", "BM25 @1", SMALL),
@@ -231,15 +233,13 @@ def context_cost() -> str:
 
 
 def catalogue_line() -> str:
-    snap = json.loads((ROOT / "cache" / "snapshot.json").read_text())
-    served = sum(len(v) for v in snap["tools"].values())
-    meta = sum(d["meta_tools_count"] for d in snap["metadata_drift"].values())
-    full = int(snap["tool_count_metadata_upper_bound"] * served / meta)
-    return (f"*Catalogue as measured: **{snap['toolkit_count']:,} toolkits**, "
+    c = _catalogue()
+    full = int(c["tools_metadata_upper_bound"] * c["served_to_metadata_ratio"])
+    return (f"*Catalogue as measured: **{c['toolkit_count']:,} toolkits**, "
             f"~{round(full, -3):,.0f} served tools, snapshotted "
-            f"{snap['fetched_at'][:10]}. It moves — the toolkit count changed three times "
+            f"{c['fetched_at'][:10]}. It moves — the toolkit count changed three times "
             f"during the session that built this, so every count here is derived from the "
-            f"snapshot rather than typed.*")
+            f"fixture rather than typed.*")
 
 
 def surface_gap() -> str:

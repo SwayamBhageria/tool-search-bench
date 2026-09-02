@@ -268,10 +268,22 @@ if __name__ == "__main__":
         for e in errors:
             print("  -", e)
         sys.exit(1)
+    # The catalogue summary is recorded here, in a committed file, so that the report
+    # can be regenerated from a fresh clone without the (regenerable, uncommitted)
+    # snapshot. `meta.tools_count` overstates what the API serves, so the served/metadata
+    # ratio is carried too and used to scale the full-catalogue estimate.
+    served = sum(len(v) for v in snapshot["tools"].values())
+    meta = sum(d["meta_tools_count"] for d in snapshot["metadata_drift"].values())
     out = {
         "version": 1,
-        "catalogue_fetched_at": snapshot["fetched_at"],
-        "toolkit_count": snapshot["toolkit_count"],
+        "catalogue": {
+            "fetched_at": snapshot["fetched_at"],
+            "toolkit_count": snapshot["toolkit_count"],
+            "toolkits_snapshotted": len(snapshot["tools"]),
+            "tools_snapshotted": served,
+            "tools_metadata_upper_bound": snapshot["tool_count_metadata_upper_bound"],
+            "served_to_metadata_ratio": round(served / meta, 4) if meta else 1.0,
+        },
         "cases": cases,
     }
     (ROOT / "fixtures" / "cases-v1.json").write_text(json.dumps(out, indent=1))
