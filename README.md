@@ -256,16 +256,16 @@ was available:
 |---|---|
 | search my Outlook mail for a message about invoices | `STRIPE_SEARCH_INVOICES` |
 | create an email draft in Gmail | `GITHUB_CREATE_DRAFT_ITEM_FOR_USER_PROJECT` |
-| cancel a scheduled event in Calendly | `SLACK_DELETE_SCHEDULED_MESSAGE` |
+| send an email using Gmail | `DROPBOX_SEND_TEAM_MEMBER_WELCOME_EMAIL` |
+| create an event in Google Calendar | `GITHUB_CREATE_A_REPOSITORY_WEBHOOK` |
+| cancel a scheduled event in Calendly | `SLACK_DELETE_REMINDER` |
 | find free slots in my Google Calendar next week | `SLACK_RETRIEVE_CURRENT_USER_DND_STATUS` |
-| create an event in Google Calendar | `NOTION_CREATE_VIEW` |
+| list invoices in Stripe | `TODOIST_LIST_SECTIONS` |
 | create a customer in Stripe | `TODOIST_CREATE_PROJECT2` |
 | create a refund in Stripe | `TODOIST_CREATE_PROJECT2` |
-| send an email using Gmail | `DROPBOX_SEND_TEAM_MEMBER_WELCOME_EMAIL` |
-| list invoices in Stripe | `TODOIST_LIST_SECTIONS` |
+| create an issue in a GitHub repository | `STRIPE_CREATE_REFUND` |
 | create a pull request on GitHub | `GMAIL_CREATE_PROMPT_POST` |
-| create an issue in a GitHub repository | `STRIPE_CREATE_SOURCE` |
-| star a GitHub repository | `ZOOM_GET_PROJECT` |
+| star a GitHub repository | `STRIPE_CONFIRM_PAYMENT_INTENT` |
 <!--/AUTO:SCOPE_EXAMPLES-->
 
 A containment check alone would score this as a clean pass — the tools returned *are*
@@ -434,17 +434,19 @@ counting it would inflate the gap. And "absent from my snapshot" is a different 
 set of known-good slugs; if the control does not fully resolve, the run raises rather than
 reporting a result.
 
-**Why it matters beyond tidiness.** *(Retracted 2026-09-09 — see the correction at the
-top of this section. It is enumerable; this paragraph is wrong.)* An operator cannot
-enumerate, through the public API, the full set of tools an agent in a session is able to
-invoke. Roughly one in six of the
-tools the router will hand an agent cannot be found in the catalogue that documents them.
-Anyone building an allowlist, an audit log, or a review process from the public API is
-working from an incomplete inventory — and will not know it, because nothing surfaces the
-difference.
+**RETRACTED 2026-09-09.** *Everything in the two quoted paragraphs below is wrong. The
+set is enumerable, on a documented endpoint, with one parameter. See the correction at the
+top of this section. Kept rather than deleted so the error is visible.*
 
-That is an auditability gap rather than a bug, and it is invisible from either side on its
-own: the catalogue looks complete, and the router looks correct.
+> **Why it matters beyond tidiness.** An operator cannot enumerate, through the public API,
+> the full set of tools an agent in a session is able to invoke. Roughly one in six of the
+> tools the router will hand an agent cannot be found in the catalogue that documents them.
+> Anyone building an allowlist, an audit log, or a review process from the public API is
+> working from an incomplete inventory, and will not know it, because nothing surfaces the
+> difference.
+>
+> That is an auditability gap rather than a bug, and it is invisible from either side on
+> its own: the catalogue looks complete, and the router looks correct.
 
 **What this does not establish is why.** Deprecated-but-routable, versioned variants, aliases
 and simple listing omissions would all look identical from outside — a slug that 404s cannot
