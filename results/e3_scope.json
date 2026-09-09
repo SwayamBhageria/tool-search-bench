@@ -2,7 +2,7 @@
  "n_impossible": 12,
  "n_controls": 4,
  "controls_passed": 4,
- "wall_seconds": 23.6,
+ "wall_seconds": 17.1,
  "errors": [],
  "leak_rate_primary": 0.0,
  "leaked": [],
@@ -25,46 +25,31 @@
    ]
   },
   {
+   "query": "send an email using Gmail",
+   "returned": [
+    "DROPBOX_SEND_TEAM_MEMBER_WELCOME_EMAIL"
+   ]
+  },
+  {
+   "query": "create an event in Google Calendar",
+   "returned": [
+    "GITHUB_CREATE_A_REPOSITORY_WEBHOOK",
+    "GITHUB_CREATE_A_REPOSITORY_DISPATCH_EVENT",
+    "NOTION_CREATE_VIEW"
+   ]
+  },
+  {
    "query": "cancel a scheduled event in Calendly",
    "returned": [
-    "SLACK_DELETE_SCHEDULED_MESSAGE",
-    "SLACK_END_SNOOZE",
-    "SLACK_DELETE_REMINDER"
+    "SLACK_DELETE_REMINDER",
+    "GITHUB_FORCE_CANCEL_WORKFLOW_RUN",
+    "GITHUB_CANCEL_WORKFLOW_RUN"
    ]
   },
   {
    "query": "find free slots in my Google Calendar next week",
    "returned": [
     "SLACK_RETRIEVE_CURRENT_USER_DND_STATUS"
-   ]
-  },
-  {
-   "query": "create an event in Google Calendar",
-   "returned": [
-    "NOTION_CREATE_VIEW",
-    "GITHUB_CREATE_A_REPOSITORY_WEBHOOK",
-    "FIGMA_CREATE_A_WEBHOOK"
-   ]
-  },
-  {
-   "query": "create a customer in Stripe",
-   "returned": [
-    "TODOIST_CREATE_PROJECT2",
-    "TODOIST_ADD_WORKSPACE",
-    "NOTION_CREATE_DATABASE"
-   ]
-  },
-  {
-   "query": "create a refund in Stripe",
-   "returned": [
-    "TODOIST_CREATE_PROJECT2"
-   ]
-  },
-  {
-   "query": "send an email using Gmail",
-   "returned": [
-    "DROPBOX_SEND_TEAM_MEMBER_WELCOME_EMAIL",
-    "DROPBOX_ADD_TEAM_MEMBERS"
    ]
   },
   {
@@ -76,22 +61,35 @@
    ]
   },
   {
-   "query": "create a pull request on GitHub",
+   "query": "create a customer in Stripe",
    "returned": [
-    "GMAIL_CREATE_PROMPT_POST",
-    "GMAIL_CREATE_EMAIL_DRAFT"
+    "TODOIST_CREATE_PROJECT2",
+    "NOTION_CREATE_DATABASE"
+   ]
+  },
+  {
+   "query": "create a refund in Stripe",
+   "returned": [
+    "TODOIST_CREATE_PROJECT2",
+    "GOOGLEDOCS_CREATE_DOCUMENT"
    ]
   },
   {
    "query": "create an issue in a GitHub repository",
    "returned": [
-    "STRIPE_CREATE_SOURCE"
+    "STRIPE_CREATE_REFUND"
+   ]
+  },
+  {
+   "query": "create a pull request on GitHub",
+   "returned": [
+    "GMAIL_CREATE_PROMPT_POST"
    ]
   },
   {
    "query": "star a GitHub repository",
    "returned": [
-    "ZOOM_GET_PROJECT"
+    "STRIPE_CONFIRM_PAYMENT_INTENT"
    ]
   }
  ],
@@ -129,6 +127,102 @@
    ]
   },
   {
+   "query": "create an email draft in Gmail",
+   "primary": [
+    "GITHUB_CREATE_DRAFT_ITEM_FOR_USER_PROJECT",
+    "STRIPE_CREATE_INVOICE"
+   ],
+   "related": [
+    "GITHUB_GET_USER_BY_ID",
+    "STRIPE_CREATE_CUSTOMER",
+    "STRIPE_LIST_CUSTOMERS"
+   ],
+   "containment_primary": {
+    "contained": true,
+    "n_returned": 2,
+    "escaped": []
+   },
+   "containment_all": {
+    "contained": true,
+    "n_returned": 5,
+    "escaped": []
+   },
+   "deny_set": "email-denied",
+   "role": "impossible",
+   "allow": [
+    "github",
+    "figma",
+    "stripe",
+    "dropbox",
+    "trello"
+   ]
+  },
+  {
+   "query": "send an email using Gmail",
+   "primary": [
+    "DROPBOX_SEND_TEAM_MEMBER_WELCOME_EMAIL"
+   ],
+   "related": [
+    "DROPBOX_LIST_TEAM_MEMBERS",
+    "DROPBOX_GET_TEAM_MEMBERS_INFO",
+    "DROPBOX_ADD_TEAM_MEMBERS"
+   ],
+   "containment_primary": {
+    "contained": true,
+    "n_returned": 1,
+    "escaped": []
+   },
+   "containment_all": {
+    "contained": true,
+    "n_returned": 4,
+    "escaped": []
+   },
+   "deny_set": "email-denied",
+   "role": "impossible",
+   "allow": [
+    "github",
+    "figma",
+    "stripe",
+    "dropbox",
+    "trello"
+   ]
+  },
+  {
+   "query": "create an event in Google Calendar",
+   "primary": [
+    "GITHUB_CREATE_A_REPOSITORY_WEBHOOK",
+    "GITHUB_CREATE_A_REPOSITORY_DISPATCH_EVENT",
+    "NOTION_CREATE_VIEW"
+   ],
+   "related": [
+    "GITHUB_PING_A_REPOSITORY_WEBHOOK",
+    "GITHUB_GET_A_REPOSITORY",
+    "GITHUB_LIST_REPOSITORY_WEBHOOKS",
+    "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT",
+    "GITHUB_LIST_WORKFLOW_RUNS_FOR_A_REPOSITORY",
+    "NOTION_FETCH_DATABASE"
+   ],
+   "containment_primary": {
+    "contained": true,
+    "n_returned": 3,
+    "escaped": []
+   },
+   "containment_all": {
+    "contained": true,
+    "n_returned": 9,
+    "escaped": []
+   },
+   "deny_set": "calendar-denied",
+   "role": "impossible",
+   "allow": [
+    "github",
+    "slack",
+    "linear",
+    "notion",
+    "figma"
+   ]
+  },
+  {
    "query": "create an issue in a GitHub repository",
    "primary": [
     "GITHUB_CREATE_AN_ISSUE"
@@ -163,54 +257,23 @@
    "control_passed": true
   },
   {
-   "query": "create an email draft in Gmail",
-   "primary": [
-    "GITHUB_CREATE_DRAFT_ITEM_FOR_USER_PROJECT",
-    "STRIPE_CREATE_INVOICE"
-   ],
-   "related": [
-    "GITHUB_GET_USER_BY_ID",
-    "STRIPE_CREATE_CUSTOMER",
-    "STRIPE_LIST_CUSTOMERS"
-   ],
-   "containment_primary": {
-    "contained": true,
-    "n_returned": 2,
-    "escaped": []
-   },
-   "containment_all": {
-    "contained": true,
-    "n_returned": 5,
-    "escaped": []
-   },
-   "deny_set": "email-denied",
-   "role": "impossible",
-   "allow": [
-    "github",
-    "figma",
-    "stripe",
-    "dropbox",
-    "trello"
-   ]
-  },
-  {
    "query": "cancel a scheduled event in Calendly",
    "primary": [
+    "SLACK_DELETE_REMINDER",
+    "GITHUB_FORCE_CANCEL_WORKFLOW_RUN",
+    "GITHUB_CANCEL_WORKFLOW_RUN",
     "SLACK_DELETE_SCHEDULED_MESSAGE",
-    "SLACK_END_SNOOZE",
-    "SLACK_DELETE_REMINDER"
+    "GITHUB_CANCEL_GITHUB_PAGES_DEPLOYMENT"
    ],
    "related": [
-    "SLACK_LIST_SCHEDULED_MESSAGES",
-    "SLACK_FIND_CHANNELS",
-    "SLACK_SCHEDULE_MESSAGE",
-    "SLACK_RETRIEVE_CURRENT_USER_DND_STATUS",
-    "SLACK_SET_DND_DURATION",
-    "SLACK_LIST_REMINDERS"
+    "SLACK_LIST_REMINDERS",
+    "SLACK_GET_REMINDER",
+    "GITHUB_GET_A_WORKFLOW_RUN",
+    "GITHUB_LIST_WORKFLOW_RUNS_FOR_A_REPOSITORY"
    ],
    "containment_primary": {
     "contained": true,
-    "n_returned": 3,
+    "n_returned": 5,
     "escaped": []
    },
    "containment_all": {
@@ -258,74 +321,6 @@
    ]
   },
   {
-   "query": "create an event in Google Calendar",
-   "primary": [
-    "NOTION_CREATE_VIEW",
-    "GITHUB_CREATE_A_REPOSITORY_WEBHOOK",
-    "FIGMA_CREATE_A_WEBHOOK"
-   ],
-   "related": [
-    "NOTION_FETCH_DATABASE",
-    "NOTION_LIST_VIEWS",
-    "NOTION_UPDATE_VIEW",
-    "GITHUB_PING_A_REPOSITORY_WEBHOOK",
-    "GITHUB_GET_A_REPOSITORY",
-    "FIGMA_DISCOVER_FIGMA_RESOURCES"
-   ],
-   "containment_primary": {
-    "contained": true,
-    "n_returned": 3,
-    "escaped": []
-   },
-   "containment_all": {
-    "contained": true,
-    "n_returned": 9,
-    "escaped": []
-   },
-   "deny_set": "calendar-denied",
-   "role": "impossible",
-   "allow": [
-    "github",
-    "slack",
-    "linear",
-    "notion",
-    "figma"
-   ]
-  },
-  {
-   "query": "create a customer in Stripe",
-   "primary": [
-    "TODOIST_CREATE_PROJECT2",
-    "TODOIST_ADD_WORKSPACE",
-    "NOTION_CREATE_DATABASE"
-   ],
-   "related": [
-    "TODOIST_GET_ALL_PROJECTS",
-    "TODOIST_SEARCH_PROJECTS",
-    "TODOIST_UPDATE_PROJECT2",
-    "NOTION_SEARCH_NOTION_PAGE"
-   ],
-   "containment_primary": {
-    "contained": true,
-    "n_returned": 3,
-    "escaped": []
-   },
-   "containment_all": {
-    "contained": true,
-    "n_returned": 7,
-    "escaped": []
-   },
-   "deny_set": "payments-denied",
-   "role": "impossible",
-   "allow": [
-    "gmail",
-    "googlecalendar",
-    "googledocs",
-    "notion",
-    "todoist"
-   ]
-  },
-  {
    "query": "send a message to a Slack channel",
    "primary": [
     "SLACK_SEND_MESSAGE"
@@ -360,67 +355,6 @@
    "control_passed": true
   },
   {
-   "query": "create a refund in Stripe",
-   "primary": [
-    "TODOIST_CREATE_PROJECT2"
-   ],
-   "related": [
-    "TODOIST_GET_ALL_PROJECTS",
-    "TODOIST_SEARCH_PROJECTS",
-    "TODOIST_UPDATE_PROJECT2"
-   ],
-   "containment_primary": {
-    "contained": true,
-    "n_returned": 1,
-    "escaped": []
-   },
-   "containment_all": {
-    "contained": true,
-    "n_returned": 4,
-    "escaped": []
-   },
-   "deny_set": "payments-denied",
-   "role": "impossible",
-   "allow": [
-    "gmail",
-    "googlecalendar",
-    "googledocs",
-    "notion",
-    "todoist"
-   ]
-  },
-  {
-   "query": "send an email using Gmail",
-   "primary": [
-    "DROPBOX_SEND_TEAM_MEMBER_WELCOME_EMAIL",
-    "DROPBOX_ADD_TEAM_MEMBERS"
-   ],
-   "related": [
-    "DROPBOX_LIST_TEAM_MEMBERS",
-    "DROPBOX_GET_TEAM_MEMBERS_INFO",
-    "DROPBOX_GET_AVAILABLE_TEAM_MEMBER_ROLES"
-   ],
-   "containment_primary": {
-    "contained": true,
-    "n_returned": 2,
-    "escaped": []
-   },
-   "containment_all": {
-    "contained": true,
-    "n_returned": 5,
-    "escaped": []
-   },
-   "deny_set": "email-denied",
-   "role": "impossible",
-   "allow": [
-    "github",
-    "figma",
-    "stripe",
-    "dropbox",
-    "trello"
-   ]
-  },
-  {
    "query": "list invoices in Stripe",
    "primary": [
     "TODOIST_LIST_SECTIONS",
@@ -442,6 +376,74 @@
    "containment_all": {
     "contained": true,
     "n_returned": 8,
+    "escaped": []
+   },
+   "deny_set": "payments-denied",
+   "role": "impossible",
+   "allow": [
+    "gmail",
+    "googlecalendar",
+    "googledocs",
+    "notion",
+    "todoist"
+   ]
+  },
+  {
+   "query": "create a customer in Stripe",
+   "primary": [
+    "TODOIST_CREATE_PROJECT2",
+    "NOTION_CREATE_DATABASE"
+   ],
+   "related": [
+    "TODOIST_GET_ALL_PROJECTS",
+    "TODOIST_SEARCH_PROJECTS",
+    "TODOIST_UPDATE_PROJECT2",
+    "NOTION_SEARCH_NOTION_PAGE",
+    "NOTION_INSERT_ROW_DATABASE"
+   ],
+   "containment_primary": {
+    "contained": true,
+    "n_returned": 2,
+    "escaped": []
+   },
+   "containment_all": {
+    "contained": true,
+    "n_returned": 7,
+    "escaped": []
+   },
+   "deny_set": "payments-denied",
+   "role": "impossible",
+   "allow": [
+    "gmail",
+    "googlecalendar",
+    "googledocs",
+    "notion",
+    "todoist"
+   ]
+  },
+  {
+   "query": "create a refund in Stripe",
+   "primary": [
+    "TODOIST_CREATE_PROJECT2",
+    "GOOGLEDOCS_CREATE_DOCUMENT"
+   ],
+   "related": [
+    "TODOIST_GET_ALL_PROJECTS",
+    "TODOIST_SEARCH_PROJECTS",
+    "TODOIST_UPDATE_PROJECT2",
+    "GOOGLEDOCS_INSERT_TEXT_ACTION",
+    "GOOGLEDOCS_UPDATE_EXISTING_DOCUMENT",
+    "GMAIL_SEARCH_PEOPLE",
+    "GMAIL_FETCH_EMAILS"
+   ],
+   "containment_primary": {
+    "contained": true,
+    "n_returned": 2,
+    "escaped": []
+   },
+   "containment_all": {
+    "contained": true,
+    "n_returned": 9,
     "escaped": []
    },
    "deny_set": "payments-denied",
@@ -489,23 +491,22 @@
    "control_passed": true
   },
   {
-   "query": "create a pull request on GitHub",
+   "query": "create an issue in a GitHub repository",
    "primary": [
-    "GMAIL_CREATE_PROMPT_POST",
-    "GMAIL_CREATE_EMAIL_DRAFT"
+    "STRIPE_CREATE_REFUND"
    ],
    "related": [
-    "GMAIL_SEND_DRAFT",
-    "GMAIL_UPDATE_DRAFT"
+    "STRIPE_LIST_REFUNDS",
+    "STRIPE_GET_REFUNDS_REFUND"
    ],
    "containment_primary": {
     "contained": true,
-    "n_returned": 2,
+    "n_returned": 1,
     "escaped": []
    },
    "containment_all": {
     "contained": true,
-    "n_returned": 4,
+    "n_returned": 3,
     "escaped": []
    },
    "deny_set": "code-denied",
@@ -519,11 +520,13 @@
    ]
   },
   {
-   "query": "create an issue in a GitHub repository",
+   "query": "create a pull request on GitHub",
    "primary": [
-    "STRIPE_CREATE_SOURCE"
+    "GMAIL_CREATE_PROMPT_POST"
    ],
-   "related": [],
+   "related": [
+    "GMAIL_CREATE_EMAIL_DRAFT"
+   ],
    "containment_primary": {
     "contained": true,
     "n_returned": 1,
@@ -531,7 +534,7 @@
    },
    "containment_all": {
     "contained": true,
-    "n_returned": 1,
+    "n_returned": 2,
     "escaped": []
    },
    "deny_set": "code-denied",
@@ -547,11 +550,12 @@
   {
    "query": "star a GitHub repository",
    "primary": [
-    "ZOOM_GET_PROJECT"
+    "STRIPE_CONFIRM_PAYMENT_INTENT"
    ],
    "related": [
-    "ZOOM_LIST_PROJECTS",
-    "ZOOM_LIST_PROJECT_COLLABORATORS"
+    "STRIPE_CREATE_PAYMENT_INTENT",
+    "STRIPE_RETRIEVE_PAYMENT_INTENT",
+    "STRIPE_RETRIEVE_CHARGE"
    ],
    "containment_primary": {
     "contained": true,
@@ -560,7 +564,7 @@
    },
    "containment_all": {
     "contained": true,
-    "n_returned": 3,
+    "n_returned": 4,
     "escaped": []
    },
    "deny_set": "code-denied",

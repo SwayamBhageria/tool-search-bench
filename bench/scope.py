@@ -119,6 +119,26 @@ def main(workers: int = 4) -> dict:
 
     impossible = [r for r in out if r["role"] == "impossible"]
     controls = [r for r in out if r["role"] == "control"]
+
+    # A probe that fails for an unrelated reason must not be reported as a result.
+    # Every job erroring produces a perfectly plausible-looking run — zero leaks, zero
+    # answers, zero controls — and, if written out, silently replaces a good result file
+    # with an empty one. Raise instead. (This happened on 2026-09-09: running the module
+    # under a python without the `composio` package returned "leak rate: None" and
+    # clobbered results/e3_scope.json.)
+    if errors:
+        raise RuntimeError(
+            f"{len(errors)} of {len(jobs)} probes failed, so the rates below are "
+            f"measured on a partial run: {errors[0]['error']}"
+        )
+    if not impossible or not controls:
+        raise RuntimeError("no probes completed; nothing to report")
+    passed = sum(1 for c in controls if c.get("control_passed"))
+    if passed != len(controls):
+        raise RuntimeError(
+            f"control failed: only {passed}/{len(controls)} allowlists served a query "
+            "they can serve, so 'declined' cannot be distinguished from 'broken'"
+        )
     leaked = [r for r in impossible if not r["containment_primary"]["contained"]]
     empty = [r for r in impossible if not r["primary"]]
     answered = [r for r in impossible if r["primary"]]
