@@ -11,6 +11,13 @@ catalogue** — no error. Asking for Gmail that way returns 500 rows, zero of th
 (`bench/catalogue.py::_assert_narrowed`).
 
 ## F2 — Toolkit metadata disagrees with what the tools endpoint serves
+> **Deflated 2026-09-09 by the same cause as F3.** `meta.tools_count` counts the latest
+> toolkit version; the v3 listing serves the pinned base. Mean |metadata - listing| over
+> the same 23 toolkits falls from **60.7 on v3 to 6.2 on v3.1**, closer on 23 of 23, and
+> the two reverse-direction cases below (HubSpot 244 vs 304, Trello 322 vs 345) become
+> 245 and 329. A residual survives — 1 of 23 matches exactly — so the summed figure is
+> still an upper bound, but "23/23 disagreed, in both directions" overstated it.
+> Reproduce with `python -m bench.version_check`.
 `meta.tools_count` on a toolkit does not match the number of tools the endpoint serves
 for it. In a 23-toolkit sample **23/23 disagreed**, in both directions:
 Gmail 61 vs 23, Stripe 425 vs 33, Dropbox 174 vs 11, but HubSpot 244 vs **304** and
@@ -18,7 +25,15 @@ Trello 322 vs **345**. So the summed catalogue figure (50,489 tools over 1,467 t
 is an upper bound, not a count.
 *Check:* paginated to exhaustion and compared against the endpoint's own `total_items`.
 
-## F3 — The router surface is a superset of the documented catalogue
+## F3 — The router surface is a superset of the *default* catalogue listing
+> **Corrected 2026-09-09.** The measurement below stands; the conclusion drawn from it in
+> point 2 does not. `GET /api/v3/tools` serves each toolkit's pinned base version while
+> search returns latest, so the two endpoints describe different catalogues. **All 100
+> "absent" slugs resolve on `/api/v3.1/tools/{slug}`** (negative control: a nonexistent
+> slug still 404s there). Composio's maintainers documented this on
+> [ComposioHQ/composio#4320](https://github.com/ComposioHQ/composio/issues/4320) on
+> 2026-08-31, before this was published. Reproduce with `python -m bench.version_check`.
+> The original wording is kept below unedited.
 `COMPOSIO_SEARCH_TOOLS` returns tools that `GET /api/v3/tools` will not list and that
 `GET /api/v3/tools/{slug}` answers **404** for — e.g. `SLACK_ARCHIVE_CONVERSATION`,
 `SLACKBOT_ARCHIVE_CONVERSATION`, `GITHUB_ADD_EMAIL_ADDRESS_FOR_AUTHENTICATED_USER`.
@@ -37,9 +52,11 @@ Two consequences:
 1. **Methodological.** A baseline that indexes the documented catalogue cannot see part of
    what the router can return. Benchmark targets are therefore drawn only from the
    documented catalogue, so both systems can reach every answer.
-2. **Substantive.** An operator cannot enumerate, through the public API, the full set of
+2. **Substantive.** ~~An operator cannot enumerate, through the public API, the full set of
    tools an agent in a session is able to invoke. That is an auditability gap rather than
-   a bug.
+   a bug.~~ **Wrong — retracted, see the correction above.** What is left is that the
+   default listing under-reports the invocable surface by about a sixth with nothing in the
+   response to say a version was chosen for you.
 
 *Check:* fetched each slug individually (404), then confirmed schema presence and
 execution behaviour inside a session.

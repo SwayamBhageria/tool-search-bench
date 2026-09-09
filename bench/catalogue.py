@@ -31,6 +31,11 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+# NOTE (2026-09-09): this endpoint resolves each toolkit to its PINNED BASE VERSION.
+# `COMPOSIO_SEARCH_TOOLS` returns tools from the LATEST version, so a snapshot taken here
+# is an older catalogue than the one the router searches. That single line is the cause of
+# the retracted F3 finding and of F2's overstated gap — see `bench/version_check.py`.
+# Pass `toolkit_versions=latest`, or use /api/v3.1, to snapshot what search can return.
 API = "https://backend.composio.dev/api/v3"
 
 # The toolkits the benchmark draws its cases from. Chosen to be widely known (so a

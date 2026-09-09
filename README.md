@@ -55,6 +55,18 @@ field overstates what the API actually serves — across the 23 snapshotted tool
 3,577 where the endpoint serves 2,347, a ratio of 0.66. Scaling by that gives **~33,000
 served tools**, which is the figure used throughout. See `FINDINGS.md` F2.
 
+> **Correction, 2026-09-09 — the ~33,000 figure is too low, and every table below inherits
+> it.** The 0.66 ratio was measured against `GET /api/v3/tools`, which serves each toolkit's
+> pinned base version; search returns latest. On `/api/v3.1` the same 23 toolkits serve
+> **3,720** against metadata's 3,577, a ratio of **1.04** — so `meta.tools_count` was
+> roughly right and slightly conservative, not a 1.5x overstatement. The corresponding
+> global figure is **~52,600 served tools**, not ~33,000. The "catalogue searched" column
+> in the results table therefore understates the full-catalogue rows by about a third.
+> This cuts in Composio's favour: the router held 0.736 lenient over a catalogue larger
+> than the one it is credited with searching. The tables are left as they were generated;
+> re-running them against a v3.1 snapshot is the honest fix and has not been done.
+> Reproduce the ratio with `python -m bench.version_check`.
+
 ### Read that table by candidate budget, not by the top score
 
 **At five candidates the local embedding index beats Composio outright — 0.846 against
@@ -337,9 +349,59 @@ stored run — reports 42% where live measurement gives 53%.
 
 ---
 
-## The search surface is larger than the documented catalogue
+## The search surface is larger than the *default* catalogue listing
 
-Separate from accuracy, and the finding an operator should care about most.
+> **Correction, 2026-09-09.** An earlier version of this section called this an
+> auditability gap: tools the router will hand an agent that an operator cannot
+> enumerate through the public API. **That conclusion was wrong.** The measurement
+> below is reproducible and still holds, but its cause is version resolution, not an
+> undocumented surface. All 100 of the "absent" tools resolve on `/api/v3.1`. The
+> original text is kept below, with the wrong paragraph marked in place rather than
+> deleted, so the mistake stays legible.
+
+`GET /api/v3/tools` resolves each toolkit to its **pinned base version**.
+`COMPOSIO_SEARCH_TOOLS` returns tools from the **latest** version. The two endpoints are
+answering about different catalogues. A tool added after a toolkit's base version is
+therefore routable and simultaneously 404s on the endpoint the docs reach for first.
+
+Composio's maintainers said as much on
+[ComposioHQ/composio#4320](https://github.com/ComposioHQ/composio/issues/4320) on
+2026-08-31: *"The search results are also based on the latest toolkit version. For tools
+returned by search, use `/api/v3.1`, or pass `version: latest`."* This benchmark's
+snapshot did neither, so it compared a latest-version search surface against a
+base-version listing.
+
+<!--AUTO:VERSION-->
+| | |
+|---|---:|
+| Slugs absent under `GET /api/v3/tools/{slug}` | 100 |
+| Of those, resolving under `GET /api/v3.1/tools/{slug}` | **100 (100%)** |
+| Still unresolved | 0 |
+| Negative control, a nonexistent slug on v3.1 | 404 |
+| Positive control, `GMAIL_SEND_EMAIL` | 200 on both |
+<!--/AUTO:VERSION-->
+
+Reproduce with `python -m bench.version_check`.
+
+**What survives.** The default listing under-reports the invocable surface by about a
+sixth, and nothing in the response signals that a version was chosen for you. That is a
+documented-behaviour footgun, not a hole: an operator who reads the versioning docs, or
+asks, gets the complete list. It is worth a sentence in the API reference beside
+`GET /tools`, and no more than that.
+
+**What does not survive.** Any claim that the invocable set is unenumerable, that an
+allowlist or audit log built from the public API is necessarily incomplete, or that the
+difference is invisible from both sides. It is enumerable, on a documented endpoint,
+with one parameter.
+
+**The same cause deflates F2.** `meta.tools_count` counts the latest version while the
+v3 listing serves the base, which is most of the disagreement that finding reported.
+Mean |metadata - listing| across the 23 snapshotted toolkits falls from **60.7 on v3 to
+6.2 on v3.1**, closer on 23 of 23. A residual remains — only 1 of 23 matches exactly —
+so the count is still not authoritative, but the dramatic version of that finding was
+mine, not theirs.
+
+### The original section, as published 2026-09-02
 
 `COMPOSIO_SEARCH_TOOLS` returns tools that `GET /api/v3/tools` will not list and that
 `GET /api/v3/tools/{slug}` answers **404** for — `SLACK_ARCHIVE_CONVERSATION`,
@@ -372,8 +434,10 @@ counting it would inflate the gap. And "absent from my snapshot" is a different 
 set of known-good slugs; if the control does not fully resolve, the run raises rather than
 reporting a result.
 
-**Why it matters beyond tidiness.** An operator cannot enumerate, through the public API,
-the full set of tools an agent in a session is able to invoke. Roughly one in six of the
+**Why it matters beyond tidiness.** *(Retracted 2026-09-09 — see the correction at the
+top of this section. It is enumerable; this paragraph is wrong.)* An operator cannot
+enumerate, through the public API, the full set of tools an agent in a session is able to
+invoke. Roughly one in six of the
 tools the router will hand an agent cannot be found in the catalogue that documents them.
 Anyone building an allowlist, an audit log, or a review process from the public API is
 working from an incomplete inventory — and will not know it, because nothing surfaces the
@@ -398,11 +462,14 @@ Reproduce with `python -m bench.surface`.
   0.19 from 0.74; not enough for a leaderboard.
 - **The app-unspecified set is 5 cases.** Its numbers are reported for completeness and
   should not be read as a result.
-- **The baseline is handicapped in one direction.** 17% of the tools the router returns are
-  not in the documented catalogue (see the surface-gap section above), and a local index
-  cannot rank what it cannot see. Every benchmark target is therefore drawn from the
-  documented catalogue, where both systems can reach the answer — but the router is being
-  scored on a task where it has strictly more to work with.
+- **The baseline is handicapped in one direction, and the reason is now known.** 17% of the
+  tools the router returns are not in the catalogue this benchmark snapshotted, and a local
+  index cannot rank what it cannot see. The snapshot was built from `GET /api/v3/tools`,
+  which serves each toolkit's pinned base version, while search returns latest — so the
+  baseline indexed an older catalogue than the router searched. Every benchmark target is
+  drawn from the snapshotted catalogue, where both systems can reach the answer, but the
+  router is being scored on a task where it has strictly more to work with. Rebuilding the
+  snapshot from `/api/v3.1` would narrow this and has not been done.
 - **The baselines search a smaller catalogue than Composio does.** Both index 2,347 tools
   across 23 toolkits; unrestricted Composio searches roughly 33,000. The like-for-like row
   (Composio restricted to the same 23 toolkits) is the one to compare against, and it is in

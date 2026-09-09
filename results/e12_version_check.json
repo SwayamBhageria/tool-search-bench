@@ -1,0 +1,267 @@
+{
+ "absent_on_v3": 100,
+ "resolved_on_v3_1": 100,
+ "resolved_rate": 1.0,
+ "still_unresolved": 0,
+ "unresolved_slugs": [],
+ "retried_after_transport_failure": 0,
+ "statuses": {
+  "AIRTABLE_CREATE_RECORDS": 200,
+  "AIRTABLE_CREATE_RECORD_FROM_NATURAL_LANGUAGE": 200,
+  "ASANA_ADD_MEMBERS_TO_PROJECT": 200,
+  "ASANA_ADD_PROJECT_FOR_TASK": 200,
+  "ASANA_ADD_TAG_TO_TASK": 200,
+  "ASANA_ADD_TASK_DEPENDENCIES": 200,
+  "ASANA_CREATE_PROJECT_FOR_TEAM": 200,
+  "ASANA_CREATE_PROJECT_FOR_WORKSPACE": 200,
+  "CALENDLY_CANCEL_SCHEDULED_EVENT": 200,
+  "CALENDLY_LIST_SCHEDULED_EVENTS": 200,
+  "CLICKUP_CREATE_DOC": 200,
+  "CLICKUP_CREATE_DOC_PAGE": 200,
+  "DROPBOX_ADD_SHARING_ALLOWLIST": 200,
+  "DROPBOX_ADD_TEAM_MEMBERS": 200,
+  "DROPBOX_ALPHA_UPLOAD_FILE": 200,
+  "DROPBOX_CHECK_MOVE_BATCH": 200,
+  "DROPBOX_CREATE_FOLDER_BATCH": 200,
+  "DROPBOX_CREATE_PAPER_FOLDER": 200,
+  "DROPBOX_GET_AVAILABLE_TEAM_MEMBER_ROLES": 200,
+  "DROPBOX_GET_TEAM_MEMBERS_INFO": 200,
+  "DROPBOX_LIST_FOLDER_CONTINUE": 200,
+  "DROPBOX_LIST_TEAM_MEMBERS": 200,
+  "DROPBOX_MOVE_BATCH": 200,
+  "DROPBOX_SEND_TEAM_MEMBER_WELCOME_EMAIL": 200,
+  "GITHUB_CHECK_REPOSITORY_STARRED": 200,
+  "GITHUB_CREATE_DRAFT_ITEM_FOR_USER_PROJECT": 200,
+  "GITHUB_GET_USER_BY_ID": 200,
+  "GITHUB_SYNC_FORK_BRANCH_WITH_UPSTREAM": 200,
+  "GMAIL_BATCH_MODIFY_MESSAGES": 200,
+  "GMAIL_CREATE_PROMPT_POST": 200,
+  "GMAIL_GET_DRAFT": 200,
+  "GMAIL_IMPORT_MESSAGE": 200,
+  "GMAIL_INSERT_MESSAGE": 200,
+  "GMAIL_UPDATE_DRAFT": 200,
+  "GMAIL_UPDATE_LABEL": 200,
+  "GOOGLECALENDAR_BATCH_EVENTS": 200,
+  "GOOGLECALENDAR_EVENTS_GET": 200,
+  "GOOGLECALENDAR_SETTINGS_GET": 200,
+  "GOOGLEDOCS_UPDATE_DOCUMENT_SECTION_MARKDOWN": 200,
+  "GOOGLEDRIVE_COPY_FILE_ADVANCED": 200,
+  "GOOGLESHEETS_UPDATE_VALUES_BATCH": 200,
+  "GOOGLESHEETS_VALUES_GET": 200,
+  "HUBSPOT_CREATE_CONTACT_FROM_NL": 200,
+  "HUBSPOT_CREATE_NOTE": 200,
+  "HUBSPOT_UPDATE_CONTACT": 200,
+  "JIRA_ADD_WORKLOG": 200,
+  "JIRA_FIND_USERS2": 200,
+  "LINEAR_CREATE_ATTACHMENT": 200,
+  "LINEAR_CREATE_LINEAR_ISSUE_RELATION": 200,
+  "LINEAR_CREATE_LINEAR_PROJECT": 200,
+  "LINEAR_SEARCH_ISSUES": 200,
+  "NOTION_APPEND_MEDIA_BLOCKS": 200,
+  "NOTION_APPEND_TABLE_BLOCKS": 200,
+  "NOTION_APPEND_TEXT_BLOCKS": 200,
+  "NOTION_CREATE_VIEW": 200,
+  "NOTION_LIST_VIEWS": 200,
+  "NOTION_MCP_NOTION_DUPLICATE_PAGE": 200,
+  "NOTION_QUERY_DATABASE_WITH_FILTER": 200,
+  "NOTION_REPLACE_PAGE_CONTENT": 200,
+  "NOTION_UPDATE_VIEW": 200,
+  "NOTION_UPSERT_ROW_DATABASE": 200,
+  "OUTLOOK_CALENDAR_CREATE_EVENT": 200,
+  "OUTLOOK_CREATE_CALENDAR_EVENT_IN_CALENDAR": 200,
+  "OUTLOOK_SEND_EMAIL": 200,
+  "SLACK_ARCHIVE_CONVERSATION": 200,
+  "SLACK_CLOSE_DM": 200,
+  "SLACK_DELETE_CHANNEL": 200,
+  "SLACK_DELETE_REMINDER": 200,
+  "SLACK_DELETE_SCHEDULED_MESSAGE": 200,
+  "SLACK_GET_USER_DND_STATUS": 200,
+  "SLACK_PIN_ITEM": 200,
+  "STRIPE_APPLY_CUSTOMER_BALANCE": 200,
+  "STRIPE_CREATE_CHARGE_REFUND": 200,
+  "STRIPE_CREATE_CUSTOMER_BALANCE_TRANSACTION": 200,
+  "STRIPE_CREATE_SOURCE": 200,
+  "STRIPE_GET_CUSTOMERS_CUSTOMER_CASH_BALANCE_TRANSACTIONS": 200,
+  "STRIPE_GET_INVOICES_INVOICE": 200,
+  "STRIPE_GET_INVOICES_INVOICE_LINES": 200,
+  "STRIPE_LIST_INVOICE_PAYMENTS": 200,
+  "STRIPE_SEARCH_INVOICES": 200,
+  "STRIPE_SEARCH_PAYMENT_INTENTS": 200,
+  "TODOIST_BULK_CREATE_TASKS": 200,
+  "TODOIST_CLOSE_TASK_V1": 200,
+  "TODOIST_CREATE_LABEL_V1": 200,
+  "TODOIST_CREATE_PROJECT2": 200,
+  "TODOIST_LIST_ALL_INVITATIONS_WORKSPACES": 200,
+  "TODOIST_LIST_SECTIONS": 200,
+  "TODOIST_LIST_WORKSPACE_ACTIVE_PROJECTS": 200,
+  "TODOIST_LIST_WORKSPACE_INVITATIONS": 200,
+  "TODOIST_MCP_COMPLETE_TASKS": 200,
+  "TODOIST_QUICK_ADD_TASK": 200,
+  "TODOIST_REOPEN_TASK2": 200,
+  "TODOIST_SEARCH_PROJECTS": 200,
+  "TODOIST_UPDATE_PROJECT2": 200,
+  "TRELLO_CREATE_CARD_LABEL": 200,
+  "TRELLO_GET_ORG_NEW_BILLABLE_GUESTS_BY_BOARD": 200,
+  "ZOOM_DELETE_A_MEETING": 200,
+  "ZOOM_GET_PROJECT": 200,
+  "ZOOM_LIST_PROJECTS": 200,
+  "ZOOM_LIST_PROJECT_COLLABORATORS": 200
+ },
+ "negative_control": {
+  "slug": "DEFINITELY_NOT_A_REAL_TOOL_9X7",
+  "v3.1": 404
+ },
+ "positive_control": {
+  "slug": "GMAIL_SEND_EMAIL",
+  "v3": 200,
+  "v3.1": 200
+ },
+ "counts": {
+  "toolkits": 23,
+  "exact_match_v3": 0,
+  "exact_match_v3_1": 1,
+  "closer_on_v3_1": 23,
+  "mean_abs_gap_v3": 60.7,
+  "mean_abs_gap_v3_1": 6.2,
+  "rows": [
+   {
+    "toolkit": "gmail",
+    "metadata": 61,
+    "v3": 23,
+    "v3_1": 63
+   },
+   {
+    "toolkit": "github",
+    "metadata": 871,
+    "v3": 823,
+    "v3_1": 893
+   },
+   {
+    "toolkit": "slack",
+    "metadata": 158,
+    "v3": 133,
+    "v3_1": 167
+   },
+   {
+    "toolkit": "googlecalendar",
+    "metadata": 45,
+    "v3": 28,
+    "v3_1": 49
+   },
+   {
+    "toolkit": "googledrive",
+    "metadata": 77,
+    "v3": 51,
+    "v3_1": 90
+   },
+   {
+    "toolkit": "googlesheets",
+    "metadata": 45,
+    "v3": 36,
+    "v3_1": 53
+   },
+   {
+    "toolkit": "notion",
+    "metadata": 53,
+    "v3": 28,
+    "v3_1": 56
+   },
+   {
+    "toolkit": "linear",
+    "metadata": 46,
+    "v3": 21,
+    "v3_1": 47
+   },
+   {
+    "toolkit": "jira",
+    "metadata": 97,
+    "v3": 46,
+    "v3_1": 102
+   },
+   {
+    "toolkit": "hubspot",
+    "metadata": 244,
+    "v3": 304,
+    "v3_1": 245
+   },
+   {
+    "toolkit": "outlook",
+    "metadata": 286,
+    "v3": 43,
+    "v3_1": 305
+   },
+   {
+    "toolkit": "discord",
+    "metadata": 23,
+    "v3": 6,
+    "v3_1": 28
+   },
+   {
+    "toolkit": "trello",
+    "metadata": 322,
+    "v3": 345,
+    "v3_1": 329
+   },
+   {
+    "toolkit": "asana",
+    "metadata": 153,
+    "v3": 84,
+    "v3_1": 153
+   },
+   {
+    "toolkit": "airtable",
+    "metadata": 24,
+    "v3": 17,
+    "v3_1": 26
+   },
+   {
+    "toolkit": "stripe",
+    "metadata": 425,
+    "v3": 33,
+    "v3_1": 432
+   },
+   {
+    "toolkit": "zoom",
+    "metadata": 90,
+    "v3": 17,
+    "v3_1": 105
+   },
+   {
+    "toolkit": "dropbox",
+    "metadata": 174,
+    "v3": 11,
+    "v3_1": 177
+   },
+   {
+    "toolkit": "todoist",
+    "metadata": 76,
+    "v3": 31,
+    "v3_1": 84
+   },
+   {
+    "toolkit": "clickup",
+    "metadata": 162,
+    "v3": 144,
+    "v3_1": 164
+   },
+   {
+    "toolkit": "figma",
+    "metadata": 52,
+    "v3": 49,
+    "v3_1": 53
+   },
+   {
+    "toolkit": "googledocs",
+    "metadata": 41,
+    "v3": 32,
+    "v3_1": 43
+   },
+   {
+    "toolkit": "calendly",
+    "metadata": 52,
+    "v3": 42,
+    "v3_1": 56
+   }
+  ]
+ }
+}
